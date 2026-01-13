@@ -13,13 +13,8 @@
 
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">▲</div>
-        <div class="brand-text">
-          <div class="brand-name" id="devName">Developer</div>
-          <div class="brand-tag">Indie Game Developer</div>
-        </div>
-      </div>
+      <div class="top-image" role="img" aria-label="Header image placeholder"></div>
+      <div class="sr-only" id="devName">Developer</div>
 
       <nav class="nav" aria-label="Primary">
         <a href="#projects">Projects</a>
@@ -59,41 +54,12 @@
           </div>
 
           <div class="meta">
-            <div class="meta-item">
-              <div class="meta-label">Primary engine</div>
-              <div class="meta-value">Unity</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">Focus</div>
-              <div class="meta-value">Gameplay • Systems • UI</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">Location</div>
-              <div class="meta-value">Switzerland / Remote</div>
-            </div>
+          <div class="meta-item">
+            <div class="meta-label">Primary engine</div>
+            <div class="meta-value">Unity</div>
           </div>
         </div>
-
-        <aside class="hero-card" aria-label="Highlights">
-          <div class="card">
-            <h2 class="card-title">Highlights</h2>
-            <ul class="checklist">
-              <li>Physics-based movement + juicy feedback</li>
-              <li>Modular upgrade systems + data-driven design</li>
-              <li>Netcode-ready architecture (when needed)</li>
-              <li>Clean UX: menus, settings, save/load</li>
-            </ul>
-
-            <div class="divider"></div>
-
-            <div class="quick">
-              <a class="mini" href="#projects">Latest builds</a>
-              <a class="mini" href="#contact">Hire / collab</a>
-              <a class="mini" href="#" id="resumeBtn">Download CV</a>
-            </div>
-            <p class="hint">Tip: Replace “Download CV” with your real file link.</p>
-          </div>
-        </aside>
+      </div>
       </div>
     </section>
 
@@ -107,6 +73,10 @@
           </div>
 
           <div class="filters" role="group" aria-label="Project filters">
+            <label class="filter-input">
+              <span class="sr-only">Filter projects</span>
+              <input id="projectSearch" type="search" placeholder="Filter projects..." />
+            </label>
             <button class="chip active" data-filter="all" type="button">All</button>
             <button class="chip" data-filter="unity" type="button">Unity</button>
             <button class="chip" data-filter="vr" type="button">VR</button>

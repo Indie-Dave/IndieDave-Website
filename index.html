@@ -54,11 +54,11 @@
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-image-center">
-            <div
-              class="top-image"
-              role="img"
-              aria-label="Header image placeholder"
-            ></div>
+            <img
+              src="imgs/IndieDave.png"
+              alt="IndieDave"
+              class="hero-main-image"
+            />
           </div>
           <div>
             <h1>
@@ -66,12 +66,18 @@
             </h1>
             <div class="hero-text-block">
               <h2>
-                <span>I make Games</span>
+                <span>I like Video Games and I make Video Games</span>
               </h2>
-              <p>I also make Devlogs to my games <span class="cursive">occasionally</span></p>
+              <p>I also make Devlogs about my games <span class="cursive">occasionally</span></p>
               <div class="hero-buttons">
-                <a href="#" target="_blank" rel="noreferrer" class="hero-link-btn">Itch.io</a>
-                <a href="#" target="_blank" rel="noreferrer" class="hero-link-btn">YouTube</a>
+                <a href="#" target="_blank" rel="noreferrer" class="hero-link-btn">
+                  <img src="imgs/itch_io.png" alt="Itch.io" class="social-icon" />
+                  Itch.io
+                </a>
+                <a href="#" target="_blank" rel="noreferrer" class="hero-link-btn">
+                  <img src="imgs/Youtube.png" alt="YouTube" class="social-icon" />
+                  YouTube
+                </a>
               </div>
             </div>
           </div>
@@ -104,17 +110,25 @@
                 and I'm happy working solo or collaborating.
               </p>
               <div class="about-row">
-                <div class="stat">
+                <div class="stat stat-with-image stat-bottom-align">
+                  <img src="imgs/controller_darkmode.png" alt="Controller" class="stat-image theme-image" data-light="imgs/controller_lightmode.png" data-dark="imgs/controller_darkmode.png" />
                   <div class="stat-num">2</div>
                   <div class="stat-label">Games released</div>
                 </div>
-                <div class="stat">
+                <div class="stat stat-with-image stat-bottom-align">
+                  <img src="imgs/unity_darkmode.png" alt="Unity Logo" class="stat-image theme-image" data-light="imgs/unity_lightmode.png" data-dark="imgs/unity_darkmode.png" />
                   <div class="stat-num">Unity</div>
-                  <div class="stat-label">Primary engine</div>
+                  <div class="stat-label">Favourite Engine</div>
                 </div>
-                <div class="stat">
-                  <div class="stat-num">C#</div>
-                  <div class="stat-label">Main language</div>
+                <div class="stat stat-with-languages stat-bottom-align">
+                  <div class="stat-languages">
+                    <img src="imgs/Logo_Csharp.png" alt="C#" class="language-logo language-logo-1" />
+                    <img src="imgs/Logo_Cpp.png" alt="C++" class="language-logo language-logo-2" />
+                    <img src="imgs/python.png" alt="Python" class="language-logo language-logo-3" />
+                    <img src="imgs/javascript.png" alt="JavaScript" class="language-logo language-logo-4" />
+                  </div>
+                  <div class="stat-num">C# | C++ | Python | JavaScript</div>
+                  <div class="stat-label">Programming Languages I use</div>
                 </div>
               </div>
             </div>
@@ -345,35 +359,44 @@
               href="#"
               target="_blank"
               rel="noreferrer"
-              class="social-btn social-btn-large"
-              >Patreon</a
+              class="social-btn social-btn-large social-patreon"
             >
+              <img src="imgs/patreon.png" alt="Patreon" class="social-icon" />
+              Patreon
+            </a>
             <a
               href="#"
               target="_blank"
               rel="noreferrer"
-              class="social-btn social-btn-large"
-              >GitHub</a
+              class="social-btn social-btn-large social-github"
             >
+              <img src="imgs/github_darkmode.png" alt="GitHub" class="social-icon theme-image" data-light="imgs/github_lightmode.png" data-dark="imgs/github_darkmode.png" />
+              GitHub
+            </a>
             <div class="socials-grid">
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium"
-                >Discord</a
-              >
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium"
-                >Instagram</a
-              >
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium"
-                >TikTok</a
-              >
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium"
-                >YouTube</a
-              >
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium"
-                >X (formerly known as Twitter)</a
-              >
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium"
-                >Reddit</a
-              >
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-discord">
+                <img src="imgs/discord.png" alt="Discord" class="social-icon" />
+                Discord
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-instagram">
+                <img src="imgs/instagram.png" alt="Instagram" class="social-icon" />
+                Instagram
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-tiktok">
+                <img src="imgs/tiktok.png" alt="TikTok" class="social-icon" />
+                TikTok
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-youtube">
+                <img src="imgs/Youtube.png" alt="YouTube" class="social-icon" />
+                YouTube
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-x">
+                X (formerly known as Twitter)
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-reddit">
+                <img src="imgs/reddit.png" alt="Reddit" class="social-icon" />
+                Reddit
+              </a>
             </div>
           </div>
         </div>
@@ -447,9 +470,7 @@
           © <span id="year"></span> <span id="footerName">Developer</span>
         </div>
         <div class="footer-links">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
+
         </div>
       </div>
     </footer>

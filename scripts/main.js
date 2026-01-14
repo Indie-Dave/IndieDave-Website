@@ -13,11 +13,30 @@
     const THEME_KEY = "portfolio_theme";
     const saved = localStorage.getItem(THEME_KEY);
     if (saved === "light" || saved === "dark") root.dataset.theme = saved;
-  
+
+    // --- update theme-aware images
+    function updateThemeImages() {
+      const theme = root.dataset.theme || "dark";
+      const themeImages = $$(".theme-image");
+      themeImages.forEach(img => {
+        const lightSrc = img.dataset.light;
+        const darkSrc = img.dataset.dark;
+        if (theme === "light" && lightSrc) {
+          img.src = lightSrc;
+        } else if (theme === "dark" && darkSrc) {
+          img.src = darkSrc;
+        }
+      });
+    }
+
+    // Update images on initial load
+    updateThemeImages();
+
     $("#themeBtn").addEventListener("click", () => {
       const next = root.dataset.theme === "light" ? "dark" : "light";
       root.dataset.theme = next;
       localStorage.setItem(THEME_KEY, next);
+      updateThemeImages();
     });
   
     // --- IndieDave capital letters styling

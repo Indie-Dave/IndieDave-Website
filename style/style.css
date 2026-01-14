@@ -408,6 +408,12 @@
     gap:12px;
     flex-wrap:wrap;
   }
+  .socials-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:12px;
+    width:100%;
+  }
   .social-btn{
     flex:1;
     min-width:140px;
@@ -428,6 +434,11 @@
   .social-btn-large{
     width:100%;
     min-width:unset;
+  }
+  .social-btn-medium{
+    flex:none;
+    min-width:unset;
+    width:100%;
   }
   
   .contact{
@@ -516,6 +527,7 @@
     .project{ grid-column: span 12; }
     .nav{ display:none; }
     .socials-row{ flex-direction:column; }
+    .socials-grid{ grid-template-columns: repeat(2, 1fr); }
     .social-btn{ flex:1 1 100%; }
   }
 

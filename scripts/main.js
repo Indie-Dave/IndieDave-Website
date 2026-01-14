@@ -37,15 +37,29 @@
     // --- project filter
     const chips = $$(".chip");
     const projects = $$(".project");
+    const projectSearch = $("#projectSearch");
+    let activeFilter = "all";
   
     function setActiveChip(btn) {
       chips.forEach(c => c.classList.toggle("active", c === btn));
     }
   
-    function applyFilter(tag) {
+    function applyFilter(tag, query) {
+      const safeQuery = (query || "").trim().toLowerCase();
       projects.forEach(p => {
         const tags = (p.dataset.tags || "").split(/\s+/).filter(Boolean);
-        const show = tag === "all" ? true : tags.includes(tag);
+        const button = $(".project-btn", p);
+        const haystack = [
+          button?.dataset.title,
+          button?.dataset.desc,
+          button?.dataset.tags
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        const matchesTag = tag === "all" ? true : tags.includes(tag);
+        const matchesQuery = safeQuery ? haystack.includes(safeQuery) : true;
+        const show = matchesTag && matchesQuery;
         p.style.display = show ? "" : "none";
       });
     }
@@ -53,9 +67,14 @@
     chips.forEach(btn => {
       btn.addEventListener("click", () => {
         const tag = btn.dataset.filter;
+        activeFilter = tag;
         setActiveChip(btn);
-        applyFilter(tag);
+        applyFilter(tag, projectSearch.value);
       });
+    });
+
+    projectSearch.addEventListener("input", (e) => {
+      applyFilter(activeFilter, e.currentTarget.value);
     });
   
     // --- modal
@@ -139,10 +158,5 @@
       e.currentTarget.reset();
     });
   
-    // --- resume placeholder
-    $("#resumeBtn").addEventListener("click", (e) => {
-      e.preventDefault();
-      alert("Replace this link with your CV file (e.g., /assets/CV.pdf).");
-    });
   })();
   

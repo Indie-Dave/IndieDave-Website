@@ -74,13 +74,6 @@
                 <a href="#" target="_blank" rel="noreferrer" class="hero-link-btn">YouTube</a>
               </div>
             </div>
-
-            <div class="meta">
-              <div class="meta-item">
-                <div class="meta-label">Primary engine</div>
-                <div class="meta-value">Unity</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -96,9 +89,15 @@
 
           <div class="about-content">
             <div class="card">
+              <p class="about-info">
+                Who am I?
+              </p>
               <p>
                 I'm an indie developer who likes building solid foundations: input, movement, game loops,
                 and the glue that turns prototypes into "this actually feels good."
+              </p>
+              <p class="about-info">
+                What do I do?
               </p>
               <p>
                 I enjoy systems that scale (data-driven upgrades, modular weapons, reusable UI),
@@ -106,8 +105,8 @@
               </p>
               <div class="about-row">
                 <div class="stat">
-                  <div class="stat-num">3+</div>
-                  <div class="stat-label">Prototypes shipped</div>
+                  <div class="stat-num">2</div>
+                  <div class="stat-label">Games released</div>
                 </div>
                 <div class="stat">
                   <div class="stat-num">Unity</div>
@@ -160,119 +159,168 @@
           <div class="grid" id="projectGrid">
             <!-- Project card template (duplicate + edit) -->
             <article class="project" data-tags="unity">
-              <button
-                class="project-btn"
-                type="button"
-                data-title="Tank Roguelike Prototype"
-                data-tags="Unity • Roguelike • Physics"
-                data-desc="A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms."
-                data-bullets="Responsive tank controller|Upgrade system (data-driven)|Wave spawner + difficulty scaling|UI: run summary + upgrades"
-                data-links="Gameplay Clip,#|GitHub,#|Itch.io,#"
-              >
-                <div class="project-top">
-                  <div class="thumb" aria-hidden="true">
-                    <div class="thumb-inner">TR</div>
-                  </div>
-                  <div class="project-meta">
-                    <h3>Tank Roguelike Prototype</h3>
-                    <p>Unity • Roguelike • Physics</p>
+              <div class="project-card-flip">
+                <div class="project-card-front">
+                  <button
+                    class="project-btn"
+                    type="button"
+                    data-title="Tank Roguelike Prototype"
+                    data-tags="Unity • Roguelike • Physics"
+                    data-desc="A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms."
+                    data-bullets="Responsive tank controller|Upgrade system (data-driven)|Wave spawner + difficulty scaling|UI: run summary + upgrades"
+                    data-links="Gameplay Clip,#|GitHub,#|Itch.io,#"
+                  >
+                    <div class="project-top">
+                      <div class="thumb" aria-hidden="true">
+                        <div class="thumb-inner">TR</div>
+                      </div>
+                      <div class="project-meta">
+                        <h3>Tank Roguelike Prototype</h3>
+                        <p>Unity • Roguelike • Physics</p>
+                      </div>
+                    </div>
+                    <p class="project-desc">
+                      Tight movement + upgrades + replayability loop.
+                    </p>
+                    <div class="project-foot">
+                      <span class="badge">In progress</span>
+                      <span class="arrow" aria-hidden="true">→</span>
+                    </div>
+                  </button>
+                </div>
+                <div class="project-card-back">
+                  <h3>Tank Roguelike Prototype</h3>
+                  <p>A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms.</p>
+                  <div class="project-card-back-links">
+                    <a href="#" target="_blank" rel="noreferrer">Gameplay Clip</a>
+                    <a href="#" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="#" target="_blank" rel="noreferrer">Itch.io</a>
                   </div>
                 </div>
-                <p class="project-desc">
-                  Tight movement + upgrades + replayability loop.
-                </p>
-                <div class="project-foot">
-                  <span class="badge">In progress</span>
-                  <span class="arrow" aria-hidden="true">→</span>
-                </div>
-              </button>
+              </div>
             </article>
 
             <article class="project" data-tags="vr unity">
-              <button
-                class="project-btn"
-                type="button"
-                data-title="Quest VR Sandbox"
-                data-tags="VR • Meta Quest • XR"
-                data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
-                data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
-                data-links="Demo,#|GitHub,#"
-              >
-                <div class="project-top">
-                  <div class="thumb" aria-hidden="true">
-                    <div class="thumb-inner">VR</div>
-                  </div>
-                  <div class="project-meta">
-                    <h3>Quest VR Sandbox</h3>
-                    <p>VR • Meta Quest • XR</p>
+              <div class="project-card-flip">
+                <div class="project-card-front">
+                  <button
+                    class="project-btn"
+                    type="button"
+                    data-title="Quest VR Sandbox"
+                    data-tags="VR • Meta Quest • XR"
+                    data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
+                    data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
+                    data-links="Demo,#|GitHub,#"
+                  >
+                    <div class="project-top">
+                      <div class="thumb" aria-hidden="true">
+                        <div class="thumb-inner">VR</div>
+                      </div>
+                      <div class="project-meta">
+                        <h3>Quest VR Sandbox</h3>
+                        <p>VR • Meta Quest • XR</p>
+                      </div>
+                    </div>
+                    <p class="project-desc">
+                      Comfort-first interactions and snappy weapon feel.
+                    </p>
+                    <div class="project-foot">
+                      <span class="badge">Prototype</span>
+                      <span class="arrow" aria-hidden="true">→</span>
+                    </div>
+                  </button>
+                </div>
+                <div class="project-card-back">
+                  <h3>Quest VR Sandbox</h3>
+                  <p>Hand interactions, holsters, and weapon handling tuned for comfort and speed.</p>
+                  <div class="project-card-back-links">
+                    <a href="#" target="_blank" rel="noreferrer">Demo</a>
+                    <a href="#" target="_blank" rel="noreferrer">GitHub</a>
                   </div>
                 </div>
-                <p class="project-desc">
-                  Comfort-first interactions and snappy weapon feel.
-                </p>
-                <div class="project-foot">
-                  <span class="badge">Prototype</span>
-                  <span class="arrow" aria-hidden="true">→</span>
-                </div>
-              </button>
+              </div>
             </article>
 
             <article class="project" data-tags="web">
-              <button
-                class="project-btn"
-                type="button"
-                data-title="Arcade .io Web Game"
-                data-tags="Web • Phaser • Multiplayer-ready"
-                data-desc="A fast browser prototype with quick rounds, simple matchmaking, and retro visuals."
-                data-bullets="Phaser scene + input|Projectile + wind system|UI: lobby + HUD|Performance pass"
-                data-links="Play,#|GitHub,#"
-              >
-                <div class="project-top">
-                  <div class="thumb" aria-hidden="true">
-                    <div class="thumb-inner">IO</div>
-                  </div>
-                  <div class="project-meta">
-                    <h3>Arcade .io Web Game</h3>
-                    <p>Web • Phaser • PvP</p>
+              <div class="project-card-flip">
+                <div class="project-card-front">
+                  <button
+                    class="project-btn"
+                    type="button"
+                    data-title="Arcade .io Web Game"
+                    data-tags="Web • Phaser • Multiplayer-ready"
+                    data-desc="A fast browser prototype with quick rounds, simple matchmaking, and retro visuals."
+                    data-bullets="Phaser scene + input|Projectile + wind system|UI: lobby + HUD|Performance pass"
+                    data-links="Play,#|GitHub,#"
+                  >
+                    <div class="project-top">
+                      <div class="thumb" aria-hidden="true">
+                        <div class="thumb-inner">IO</div>
+                      </div>
+                      <div class="project-meta">
+                        <h3>Arcade .io Web Game</h3>
+                        <p>Web • Phaser • PvP</p>
+                      </div>
+                    </div>
+                    <p class="project-desc">
+                      Quick-to-learn PvP loop with strong readability.
+                    </p>
+                    <div class="project-foot">
+                      <span class="badge">Playable</span>
+                      <span class="arrow" aria-hidden="true">→</span>
+                    </div>
+                  </button>
+                </div>
+                <div class="project-card-back">
+                  <h3>Arcade .io Web Game</h3>
+                  <p>A fast browser prototype with quick rounds, simple matchmaking, and retro visuals.</p>
+                  <div class="project-card-back-links">
+                    <a href="#" target="_blank" rel="noreferrer">Play</a>
+                    <a href="#" target="_blank" rel="noreferrer">GitHub</a>
                   </div>
                 </div>
-                <p class="project-desc">
-                  Quick-to-learn PvP loop with strong readability.
-                </p>
-                <div class="project-foot">
-                  <span class="badge">Playable</span>
-                  <span class="arrow" aria-hidden="true">→</span>
-                </div>
-              </button>
+              </div>
             </article>
 
             <article class="project" data-tags="tools unity">
-              <button
-                class="project-btn"
-                type="button"
-                data-title="Procedural Terrain Tool"
-                data-tags="Unity • Tools • Editor"
-                data-desc="A Unity editor tool for generating terrain, paths, and structure placement with rules per layer."
-                data-bullets="Custom inspector UI|Regenerate / Reset workflow|Path + structure rules|Separate water terrain toggle"
-                data-links="Write-up,#|GitHub,#"
-              >
-                <div class="project-top">
-                  <div class="thumb" aria-hidden="true">
-                    <div class="thumb-inner">TG</div>
-                  </div>
-                  <div class="project-meta">
-                    <h3>Procedural Terrain Tool</h3>
-                    <p>Unity • Tools • Editor</p>
+              <div class="project-card-flip">
+                <div class="project-card-front">
+                  <button
+                    class="project-btn"
+                    type="button"
+                    data-title="Procedural Terrain Tool"
+                    data-tags="Unity • Tools • Editor"
+                    data-desc="A Unity editor tool for generating terrain, paths, and structure placement with rules per layer."
+                    data-bullets="Custom inspector UI|Regenerate / Reset workflow|Path + structure rules|Separate water terrain toggle"
+                    data-links="Write-up,#|GitHub,#"
+                  >
+                    <div class="project-top">
+                      <div class="thumb" aria-hidden="true">
+                        <div class="thumb-inner">TG</div>
+                      </div>
+                      <div class="project-meta">
+                        <h3>Procedural Terrain Tool</h3>
+                        <p>Unity • Tools • Editor</p>
+                      </div>
+                    </div>
+                    <p class="project-desc">
+                      Fast iteration toolchain for building levels.
+                    </p>
+                    <div class="project-foot">
+                      <span class="badge">Tooling</span>
+                      <span class="arrow" aria-hidden="true">→</span>
+                    </div>
+                  </button>
+                </div>
+                <div class="project-card-back">
+                  <h3>Procedural Terrain Tool</h3>
+                  <p>A Unity editor tool for generating terrain, paths, and structure placement with rules per layer.</p>
+                  <div class="project-card-back-links">
+                    <a href="#" target="_blank" rel="noreferrer">Write-up</a>
+                    <a href="#" target="_blank" rel="noreferrer">GitHub</a>
                   </div>
                 </div>
-                <p class="project-desc">
-                  Fast iteration toolchain for building levels.
-                </p>
-                <div class="project-foot">
-                  <span class="badge">Tooling</span>
-                  <span class="arrow" aria-hidden="true">→</span>
-                </div>
-              </button>
+              </div>
             </article>
           </div>
         </div>

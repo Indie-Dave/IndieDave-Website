@@ -34,18 +34,21 @@
     }
   
     // --- copy email
-    $("#copyEmailBtn").addEventListener("click", async (e) => {
-      const btn = e.currentTarget;
-      const email = btn.dataset.email || "you@example.com";
-      try {
-        await navigator.clipboard.writeText(email);
-        const old = btn.textContent;
-        btn.textContent = "Copied!";
-        setTimeout(() => (btn.textContent = old), 900);
-      } catch {
-        alert(`Copy failed. Email: ${email}`);
-      }
-    });
+    const copyEmailBtn = $("#copyEmailBtn");
+    if (copyEmailBtn) {
+      copyEmailBtn.addEventListener("click", async (e) => {
+        const btn = e.currentTarget;
+        const email = btn.dataset.email || "you@example.com";
+        try {
+          await navigator.clipboard.writeText(email);
+          const old = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = old), 900);
+        } catch {
+          alert(`Copy failed. Email: ${email}`);
+        }
+      });
+    }
   
     // --- project filter
     const chips = $$(".chip");
@@ -90,13 +93,35 @@
       applyFilter(activeFilter, e.currentTarget.value);
     });
   
+    // --- project card flip animation
+    $$(".project-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const cardFlip = btn.closest(".project-card-flip");
+        if (cardFlip) {
+          cardFlip.classList.toggle("flipped");
+        }
+      });
+    });
+    
+    // Allow flipping back by clicking on the back side
+    $$(".project-card-back").forEach(back => {
+      back.addEventListener("click", (e) => {
+        const cardFlip = back.closest(".project-card-flip");
+        if (cardFlip) {
+          cardFlip.classList.toggle("flipped");
+        }
+      });
+    });
+  
     // --- modal
     const modal = $("#modal");
-    const modalTitle = $("#modalTitle");
-    const modalTags = $("#modalTags");
-    const modalDesc = $("#modalDesc");
-    const modalBullets = $("#modalBullets");
-    const modalLinks = $("#modalLinks");
+    if (modal) {
+      const modalTitle = $("#modalTitle");
+      const modalTags = $("#modalTags");
+      const modalDesc = $("#modalDesc");
+      const modalBullets = $("#modalBullets");
+      const modalLinks = $("#modalLinks");
   
     function openModal(data) {
       modalTitle.textContent = data.title || "Project";
@@ -125,51 +150,33 @@
       document.body.style.overflow = "hidden";
     }
   
-    function closeModal() {
-      modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+      function closeModal() {
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+  
+      // close modal actions
+      modal.addEventListener("click", (e) => {
+        const t = e.target;
+        if (t && t.dataset && t.dataset.close === "true") closeModal();
+      });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
+      });
     }
   
-    // click project
-    $$(".project-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const bullets = (btn.dataset.bullets || "")
-          .split("|")
-          .map(s => s.trim())
-          .filter(Boolean);
-  
-        const links = (btn.dataset.links || "")
-          .split("|")
-          .map(pair => pair.split(",").map(s => s.trim()))
-          .filter(p => p.length >= 1 && p[0]);
-  
-        openModal({
-          title: btn.dataset.title,
-          tags: btn.dataset.tags,
-          desc: btn.dataset.desc,
-          bullets,
-          links
-        });
-      });
-    });
-  
-    // close modal actions
-    modal.addEventListener("click", (e) => {
-      const t = e.target;
-      if (t && t.dataset && t.dataset.close === "true") closeModal();
-    });
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
-    });
-  
     // --- contact form demo
-    $("#contactForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      $("#formHint").textContent = "Saved locally (demo). Hook this to a backend to actually send.";
-      const data = Object.fromEntries(new FormData(e.currentTarget).entries());
-      localStorage.setItem("portfolio_last_message", JSON.stringify(data));
-      e.currentTarget.reset();
-    });
+    const contactForm = $("#contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formHint = $("#formHint");
+        if (formHint) formHint.textContent = "Saved locally (demo). Hook this to a backend to actually send.";
+        const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+        localStorage.setItem("portfolio_last_message", JSON.stringify(data));
+        e.currentTarget.reset();
+      });
+    }
   
   })();
   

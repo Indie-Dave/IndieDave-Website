@@ -1,339 +1,427 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Indie Developer Portfolio</title>
-  <meta name="description" content="Indie game developer portfolio — projects, skills, and contact." />
-  <link rel="stylesheet" href="style/style.css" />
-  <script>
-    // Load theme before page renders to prevent flash
-    const saved = localStorage.getItem('portfolio_theme');
-    if (saved === 'light' || saved === 'dark') {
-      document.documentElement.dataset.theme = saved;
-    }
-  </script>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Indie Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Indie game developer portfolio — projects, skills, and contact."
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <script>
+      // Load theme before page renders to prevent flash
+      const saved = localStorage.getItem("portfolio_theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.dataset.theme = saved;
+      }
+    </script>
+  </head>
 
-<body>
-  <a class="skip" href="#main">Skip to content</a>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="sr-only" id="devName">Developer</div>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="sr-only" id="devName">Developer</div>
 
-      <div class="topbar-content">
-        <nav class="nav" aria-label="Primary">
+        <div class="topbar-content">
+          <nav class="nav" aria-label="Primary">
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About</a>
+            <a href="#contact" class="pill">Contact</a>
+          </nav>
+
+          <div class="actions">
+            <button
+              id="themeBtn"
+              class="icon-btn"
+              type="button"
+              aria-label="Toggle theme"
+              title="Toggle theme"
+            >
+              <span aria-hidden="true">◐</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-image-center">
+            <div
+              class="top-image"
+              role="img"
+              aria-label="Header image placeholder"
+            ></div>
+          </div>
+          <div>
+            <h1>
+              Hi there, my name is <span class="accent">IndieDave</span>
+            </h1>
+            <h2>
+              <span>I make Games and I play Video Games.</span>
+              <p>I also make Devlogs to my games occasionally</p>
+            </h2>
+            <!-- <p class="lede">Indie Game Developer / Web Developer</p> -->
+
+            <div class="meta">
+              <div class="meta-item">
+                <div class="meta-label">Primary engine</div>
+                <div class="meta-value">Unity</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Projects</h2>
+              <p class="sub">
+                A few things I’ve built — click a card for details.
+              </p>
+            </div>
+
+            <div class="filters" role="group" aria-label="Project filters">
+              <label class="filter-input">
+                <span class="sr-only">Filter projects</span>
+                <input
+                  id="projectSearch"
+                  type="search"
+                  placeholder="Filter projects..."
+                />
+              </label>
+              <button class="chip active" data-filter="all" type="button">
+                All
+              </button>
+              <button class="chip" data-filter="unity" type="button">
+                Unity
+              </button>
+              <button class="chip" data-filter="vr" type="button">VR</button>
+              <button class="chip" data-filter="web" type="button">Web</button>
+              <button class="chip" data-filter="tools" type="button">
+                Tools
+              </button>
+            </div>
+          </div>
+
+          <div class="grid" id="projectGrid">
+            <!-- Project card template (duplicate + edit) -->
+            <article class="project" data-tags="unity">
+              <button
+                class="project-btn"
+                type="button"
+                data-title="Tank Roguelike Prototype"
+                data-tags="Unity • Roguelike • Physics"
+                data-desc="A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms."
+                data-bullets="Responsive tank controller|Upgrade system (data-driven)|Wave spawner + difficulty scaling|UI: run summary + upgrades"
+                data-links="Gameplay Clip,#|GitHub,#|Itch.io,#"
+              >
+                <div class="project-top">
+                  <div class="thumb" aria-hidden="true">
+                    <div class="thumb-inner">TR</div>
+                  </div>
+                  <div class="project-meta">
+                    <h3>Tank Roguelike Prototype</h3>
+                    <p>Unity • Roguelike • Physics</p>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  Tight movement + upgrades + replayability loop.
+                </p>
+                <div class="project-foot">
+                  <span class="badge">In progress</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </button>
+            </article>
+
+            <article class="project" data-tags="vr unity">
+              <button
+                class="project-btn"
+                type="button"
+                data-title="Quest VR Sandbox"
+                data-tags="VR • Meta Quest • XR"
+                data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
+                data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
+                data-links="Demo,#|GitHub,#"
+              >
+                <div class="project-top">
+                  <div class="thumb" aria-hidden="true">
+                    <div class="thumb-inner">VR</div>
+                  </div>
+                  <div class="project-meta">
+                    <h3>Quest VR Sandbox</h3>
+                    <p>VR • Meta Quest • XR</p>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  Comfort-first interactions and snappy weapon feel.
+                </p>
+                <div class="project-foot">
+                  <span class="badge">Prototype</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </button>
+            </article>
+
+            <article class="project" data-tags="web">
+              <button
+                class="project-btn"
+                type="button"
+                data-title="Arcade .io Web Game"
+                data-tags="Web • Phaser • Multiplayer-ready"
+                data-desc="A fast browser prototype with quick rounds, simple matchmaking, and retro visuals."
+                data-bullets="Phaser scene + input|Projectile + wind system|UI: lobby + HUD|Performance pass"
+                data-links="Play,#|GitHub,#"
+              >
+                <div class="project-top">
+                  <div class="thumb" aria-hidden="true">
+                    <div class="thumb-inner">IO</div>
+                  </div>
+                  <div class="project-meta">
+                    <h3>Arcade .io Web Game</h3>
+                    <p>Web • Phaser • PvP</p>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  Quick-to-learn PvP loop with strong readability.
+                </p>
+                <div class="project-foot">
+                  <span class="badge">Playable</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </button>
+            </article>
+
+            <article class="project" data-tags="tools unity">
+              <button
+                class="project-btn"
+                type="button"
+                data-title="Procedural Terrain Tool"
+                data-tags="Unity • Tools • Editor"
+                data-desc="A Unity editor tool for generating terrain, paths, and structure placement with rules per layer."
+                data-bullets="Custom inspector UI|Regenerate / Reset workflow|Path + structure rules|Separate water terrain toggle"
+                data-links="Write-up,#|GitHub,#"
+              >
+                <div class="project-top">
+                  <div class="thumb" aria-hidden="true">
+                    <div class="thumb-inner">TG</div>
+                  </div>
+                  <div class="project-meta">
+                    <h3>Procedural Terrain Tool</h3>
+                    <p>Unity • Tools • Editor</p>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  Fast iteration toolchain for building levels.
+                </p>
+                <div class="project-foot">
+                  <span class="badge">Tooling</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Skills</h2>
+              <p class="sub">Stuff I’m comfortable shipping with.</p>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="panel">
+              <h3>Gameplay & Systems</h3>
+              <ul class="bullets">
+                <li>Character / vehicle controllers</li>
+                <li>Ability + upgrade frameworks</li>
+                <li>AI basics (NavMesh, state logic)</li>
+                <li>Save/load, progression, tuning</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>Tech</h3>
+              <ul class="bullets">
+                <li>Unity, C#, URP</li>
+                <li>UI (UGUI, TextMeshPro)</li>
+                <li>Optimization passes</li>
+                <li>Git workflows, CI basics</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>Nice Extras</h3>
+              <ul class="bullets">
+                <li>VR interaction design</li>
+                <li>Tools & editor scripting</li>
+                <li>Web prototypes (JS)</li>
+                <li>Audio hooks + game feel</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Socials</h2>
+              <p class="sub">Follow and support on your favorite platform.</p>
+            </div>
+          </div>
+
+          <div class="socials">
+            <a
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+              class="social-btn social-btn-large"
+              >Patreon</a
+            >
+            <a
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+              class="social-btn social-btn-large"
+              >GitHub</a
+            >
+            <div class="socials-row">
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn"
+                >Discord</a
+              >
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn"
+                >Instagram</a
+              >
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn"
+                >TikTok</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Contact</h2>
+              <p class="sub">
+                Fastest way: email. Or use the form (client-side).
+              </p>
+            </div>
+          </div>
+
+          <div class="contact">
+            <div class="card">
+              <h3>Reach me</h3>
+              <p class="contact-line">
+                Email: <a href="mailto:you@example.com">you@example.com</a>
+              </p>
+              <p class="contact-line">
+                Discord: <span class="mono">yourhandle</span>
+              </p>
+              <p class="hint">
+                Tip: Put your real email into the “Copy email” button too.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Message</h3>
+              <form id="contactForm">
+                <label>
+                  <span>Name</span>
+                  <input name="name" required placeholder="Your name" />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="you@domain.com"
+                  />
+                </label>
+                <label>
+                  <span>Message</span>
+                  <textarea
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="What are you building?"
+                  ></textarea>
+                </label>
+                <button class="btn primary" type="submit">Send</button>
+                <p class="hint" id="formHint">
+                  This demo doesn’t send emails (no backend).
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span> <span id="footerName">Developer</span>
+        </div>
+        <div class="footer-links">
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#about">About</a>
-          <a href="#contact" class="pill">Contact</a>
-        </nav>
+        </div>
+      </div>
+    </footer>
 
-        <div class="actions">
-          <button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
-            <span aria-hidden="true">◐</span>
+    <!-- MODAL -->
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-head">
+          <div>
+            <h3 id="modalTitle">Project</h3>
+            <p id="modalTags" class="sub"></p>
+          </div>
+          <button
+            class="icon-btn"
+            type="button"
+            data-close="true"
+            aria-label="Close"
+          >
+            ✕
           </button>
         </div>
+
+        <p id="modalDesc"></p>
+        <ul id="modalBullets" class="bullets"></ul>
+
+        <div class="modal-links" id="modalLinks"></div>
       </div>
     </div>
-  </header>
 
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-image-center">
-          <div class="top-image" role="img" aria-label="Header image placeholder"></div>
-        </div>
-        <div>
-          <p class="kicker">Gameplay-first • Rapid prototyping • Polished feel</p>
-          <h1>
-            I build <span class="accent">tight</span> mechanics and
-            <span class="accent">shippable</span> indie games.
-          </h1>
-          <p class="lede">
-            Unity / C# developer focused on responsive controls, clean systems, and production-ready UI.
-          </p>
-
-          <div class="hero-cta">
-            <a class="btn primary" href="#projects">See projects</a>
-            <a class="btn" href="#contact">Get in touch</a>
-            <button class="btn ghost" id="copyEmailBtn" type="button" data-email="you@example.com">
-              Copy email
-            </button>
-          </div>
-
-          <div class="meta">
-          <div class="meta-item">
-            <div class="meta-label">Primary engine</div>
-            <div class="meta-value">Unity</div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Projects</h2>
-            <p class="sub">A few things I’ve built — click a card for details.</p>
-          </div>
-
-          <div class="filters" role="group" aria-label="Project filters">
-            <label class="filter-input">
-              <span class="sr-only">Filter projects</span>
-              <input id="projectSearch" type="search" placeholder="Filter projects..." />
-            </label>
-            <button class="chip active" data-filter="all" type="button">All</button>
-            <button class="chip" data-filter="unity" type="button">Unity</button>
-            <button class="chip" data-filter="vr" type="button">VR</button>
-            <button class="chip" data-filter="web" type="button">Web</button>
-            <button class="chip" data-filter="tools" type="button">Tools</button>
-          </div>
-        </div>
-
-        <div class="grid" id="projectGrid">
-          <!-- Project card template (duplicate + edit) -->
-          <article class="project" data-tags="unity">
-            <button class="project-btn" type="button"
-              data-title="Tank Roguelike Prototype"
-              data-tags="Unity • Roguelike • Physics"
-              data-desc="A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms."
-              data-bullets="Responsive tank controller|Upgrade system (data-driven)|Wave spawner + difficulty scaling|UI: run summary + upgrades"
-              data-links="Gameplay Clip,#|GitHub,#|Itch.io,#">
-              <div class="project-top">
-                <div class="thumb" aria-hidden="true">
-                  <div class="thumb-inner">TR</div>
-                </div>
-                <div class="project-meta">
-                  <h3>Tank Roguelike Prototype</h3>
-                  <p>Unity • Roguelike • Physics</p>
-                </div>
-              </div>
-              <p class="project-desc">
-                Tight movement + upgrades + replayability loop.
-              </p>
-              <div class="project-foot">
-                <span class="badge">In progress</span>
-                <span class="arrow" aria-hidden="true">→</span>
-              </div>
-            </button>
-          </article>
-
-          <article class="project" data-tags="vr unity">
-            <button class="project-btn" type="button"
-              data-title="Quest VR Sandbox"
-              data-tags="VR • Meta Quest • XR"
-              data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
-              data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
-              data-links="Demo,#|GitHub,#">
-              <div class="project-top">
-                <div class="thumb" aria-hidden="true"><div class="thumb-inner">VR</div></div>
-                <div class="project-meta">
-                  <h3>Quest VR Sandbox</h3>
-                  <p>VR • Meta Quest • XR</p>
-                </div>
-              </div>
-              <p class="project-desc">Comfort-first interactions and snappy weapon feel.</p>
-              <div class="project-foot">
-                <span class="badge">Prototype</span>
-                <span class="arrow" aria-hidden="true">→</span>
-              </div>
-            </button>
-          </article>
-
-          <article class="project" data-tags="web">
-            <button class="project-btn" type="button"
-              data-title="Arcade .io Web Game"
-              data-tags="Web • Phaser • Multiplayer-ready"
-              data-desc="A fast browser prototype with quick rounds, simple matchmaking, and retro visuals."
-              data-bullets="Phaser scene + input|Projectile + wind system|UI: lobby + HUD|Performance pass"
-              data-links="Play,#|GitHub,#">
-              <div class="project-top">
-                <div class="thumb" aria-hidden="true"><div class="thumb-inner">IO</div></div>
-                <div class="project-meta">
-                  <h3>Arcade .io Web Game</h3>
-                  <p>Web • Phaser • PvP</p>
-                </div>
-              </div>
-              <p class="project-desc">Quick-to-learn PvP loop with strong readability.</p>
-              <div class="project-foot">
-                <span class="badge">Playable</span>
-                <span class="arrow" aria-hidden="true">→</span>
-              </div>
-            </button>
-          </article>
-
-          <article class="project" data-tags="tools unity">
-            <button class="project-btn" type="button"
-              data-title="Procedural Terrain Tool"
-              data-tags="Unity • Tools • Editor"
-              data-desc="A Unity editor tool for generating terrain, paths, and structure placement with rules per layer."
-              data-bullets="Custom inspector UI|Regenerate / Reset workflow|Path + structure rules|Separate water terrain toggle"
-              data-links="Write-up,#|GitHub,#">
-              <div class="project-top">
-                <div class="thumb" aria-hidden="true"><div class="thumb-inner">TG</div></div>
-                <div class="project-meta">
-                  <h3>Procedural Terrain Tool</h3>
-                  <p>Unity • Tools • Editor</p>
-                </div>
-              </div>
-              <p class="project-desc">Fast iteration toolchain for building levels.</p>
-              <div class="project-foot">
-                <span class="badge">Tooling</span>
-                <span class="arrow" aria-hidden="true">→</span>
-              </div>
-            </button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section alt">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Skills</h2>
-            <p class="sub">Stuff I’m comfortable shipping with.</p>
-          </div>
-        </div>
-
-        <div class="cols">
-          <div class="panel">
-            <h3>Gameplay & Systems</h3>
-            <ul class="bullets">
-              <li>Character / vehicle controllers</li>
-              <li>Ability + upgrade frameworks</li>
-              <li>AI basics (NavMesh, state logic)</li>
-              <li>Save/load, progression, tuning</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h3>Tech</h3>
-            <ul class="bullets">
-              <li>Unity, C#, URP</li>
-              <li>UI (UGUI, TextMeshPro)</li>
-              <li>Optimization passes</li>
-              <li>Git workflows, CI basics</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h3>Nice Extras</h3>
-            <ul class="bullets">
-              <li>VR interaction design</li>
-              <li>Tools & editor scripting</li>
-              <li>Web prototypes (JS)</li>
-              <li>Audio hooks + game feel</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Socials</h2>
-            <p class="sub">Follow and support on your favorite platform.</p>
-          </div>
-        </div>
-
-        <div class="socials">
-          <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-large">Patreon</a>
-          <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-large">GitHub</a>
-          <div class="socials-row">
-            <a href="#" target="_blank" rel="noreferrer" class="social-btn">Discord</a>
-            <a href="#" target="_blank" rel="noreferrer" class="social-btn">Instagram</a>
-            <a href="#" target="_blank" rel="noreferrer" class="social-btn">TikTok</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section alt">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Contact</h2>
-            <p class="sub">Fastest way: email. Or use the form (client-side).</p>
-          </div>
-        </div>
-
-        <div class="contact">
-          <div class="card">
-            <h3>Reach me</h3>
-            <p class="contact-line">
-              Email: <a href="mailto:you@example.com">you@example.com</a>
-            </p>
-            <p class="contact-line">
-              Discord: <span class="mono">yourhandle</span>
-            </p>
-            <p class="hint">Tip: Put your real email into the “Copy email” button too.</p>
-          </div>
-
-          <div class="card">
-            <h3>Message</h3>
-            <form id="contactForm">
-              <label>
-                <span>Name</span>
-                <input name="name" required placeholder="Your name" />
-              </label>
-              <label>
-                <span>Email</span>
-                <input name="email" type="email" required placeholder="you@domain.com" />
-              </label>
-              <label>
-                <span>Message</span>
-                <textarea name="message" rows="5" required placeholder="What are you building?"></textarea>
-              </label>
-              <button class="btn primary" type="submit">Send</button>
-              <p class="hint" id="formHint">This demo doesn’t send emails (no backend).</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> <span id="footerName">Developer</span></div>
-      <div class="footer-links">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close="true"></div>
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-head">
-        <div>
-          <h3 id="modalTitle">Project</h3>
-          <p id="modalTags" class="sub"></p>
-        </div>
-        <button class="icon-btn" type="button" data-close="true" aria-label="Close">✕</button>
-      </div>
-
-      <p id="modalDesc"></p>
-      <ul id="modalBullets" class="bullets"></ul>
-
-      <div class="modal-links" id="modalLinks"></div>
-    </div>
-  </div>
-
-  <script src="scripts/main.js"></script>
-</body>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>

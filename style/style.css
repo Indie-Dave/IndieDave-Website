@@ -75,11 +75,18 @@
   }
   .topbar-inner{
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     align-items:center;
     justify-content:center;
     gap:12px;
     padding:18px 0;
+  }
+
+  .topbar-content{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:12px;
   }
 
   .top-image{
@@ -126,6 +133,11 @@
     grid-template-columns: 1fr;
     gap:22px;
     align-items:start;
+  }
+  .hero-image-center{
+    display:flex;
+    justify-content:center;
+    width:100%;
   }
   .kicker{
     color:var(--muted);
@@ -319,6 +331,39 @@
   }
   .linklist a:hover{ text-decoration:none; filter:brightness(1.06); }
   
+  .socials{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    width:100%;
+  }
+  .socials-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .social-btn{
+    flex:1;
+    min-width:140px;
+    border:1px solid var(--border);
+    background: color-mix(in srgb, var(--panel) 70%, transparent);
+    color:var(--text);
+    border-radius: 14px;
+    padding:12px 14px;
+    font-weight:700;
+    cursor:pointer;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: filter .2s ease;
+  }
+  .social-btn:hover{ text-decoration:none; filter:brightness(1.07); }
+  .social-btn-large{
+    width:100%;
+    min-width:unset;
+  }
+  
   .contact{
     display:grid;
     grid-template-columns: .9fr 1.1fr;
@@ -404,6 +449,8 @@
     .contact{ grid-template-columns:1fr; }
     .project{ grid-column: span 12; }
     .nav{ display:none; }
+    .socials-row{ flex-direction:column; }
+    .social-btn{ flex:1 1 100%; }
   }
 
   .sr-only{

@@ -6,6 +6,13 @@
   <title>Indie Developer Portfolio</title>
   <meta name="description" content="Indie game developer portfolio — projects, skills, and contact." />
   <link rel="stylesheet" href="style/style.css" />
+  <script>
+    // Load theme before page renders to prevent flash
+    const saved = localStorage.getItem('portfolio_theme');
+    if (saved === 'light' || saved === 'dark') {
+      document.documentElement.dataset.theme = saved;
+    }
+  </script>
 </head>
 
 <body>
@@ -13,20 +20,21 @@
 
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="top-image" role="img" aria-label="Header image placeholder"></div>
       <div class="sr-only" id="devName">Developer</div>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="pill">Contact</a>
-      </nav>
+      <div class="topbar-content">
+        <nav class="nav" aria-label="Primary">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="pill">Contact</a>
+        </nav>
 
-      <div class="actions">
-        <button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
-          <span aria-hidden="true">◐</span>
-        </button>
+        <div class="actions">
+          <button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+            <span aria-hidden="true">◐</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -35,6 +43,9 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
+        <div class="hero-image-center">
+          <div class="top-image" role="img" aria-label="Header image placeholder"></div>
+        </div>
         <div>
           <p class="kicker">Gameplay-first • Rapid prototyping • Polished feel</p>
           <h1>
@@ -229,48 +240,21 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>About</h2>
-            <p class="sub">Short and to the point.</p>
+            <h2>Socials</h2>
+            <p class="sub">Follow and support on your favorite platform.</p>
           </div>
         </div>
 
-        <div class="about">
-          <div class="card">
-            <p>
-              I’m an indie developer who likes building solid foundations: input, movement, game loops,
-              and the glue that turns prototypes into “this actually feels good.”
-            </p>
-            <p>
-              I enjoy systems that scale (data-driven upgrades, modular weapons, reusable UI),
-              and I’m happy working solo or collaborating.
-            </p>
-            <div class="about-row">
-              <div class="stat">
-                <div class="stat-num">3+</div>
-                <div class="stat-label">Prototypes shipped</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">Unity</div>
-                <div class="stat-label">Primary engine</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">C#</div>
-                <div class="stat-label">Main language</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Links</h3>
-            <div class="linklist">
-              <a href="#" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="#" target="_blank" rel="noreferrer">Itch.io</a>
-              <a href="#" target="_blank" rel="noreferrer">YouTube</a>
-              <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-            </div>
-            <p class="hint">Replace these with your real profiles.</p>
+        <div class="socials">
+          <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-large">Patreon</a>
+          <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-large">GitHub</a>
+          <div class="socials-row">
+            <a href="#" target="_blank" rel="noreferrer" class="social-btn">Discord</a>
+            <a href="#" target="_blank" rel="noreferrer" class="social-btn">Instagram</a>
+            <a href="#" target="_blank" rel="noreferrer" class="social-btn">TikTok</a>
           </div>
         </div>
+
       </div>
     </section>
 

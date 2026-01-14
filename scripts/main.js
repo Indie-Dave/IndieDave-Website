@@ -20,6 +20,19 @@
       localStorage.setItem(THEME_KEY, next);
     });
   
+    // --- IndieDave capital letters styling
+    const heroName = $(".hero-name");
+    if (heroName) {
+      const text = heroName.textContent;
+      const processedHTML = text.split('').map(char => {
+        if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+          return `<span class="hero-capital">${char}</span>`;
+        }
+        return `<span>${char}</span>`;
+      }).join('');
+      heroName.innerHTML = processedHTML;
+    }
+  
     // --- copy email
     $("#copyEmailBtn").addEventListener("click", async (e) => {
       const btn = e.currentTarget;

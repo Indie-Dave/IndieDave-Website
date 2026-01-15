@@ -70,13 +70,34 @@
     }
   
     // --- project filter
-    const chips = $$(".chip");
+    const filterDropdownBtn = $("#filterDropdownBtn") || document.querySelector(".filter-dropdown-btn");
+    const filterDropdownMenu = document.querySelector(".filter-dropdown-menu");
+    const filterOptions = $$(".filter-option");
+    const filterLabel = $("#filterLabel");
     const projects = $$(".project");
     const projectSearch = $("#projectSearch");
     let activeFilter = "all";
   
-    function setActiveChip(btn) {
-      chips.forEach(c => c.classList.toggle("active", c === btn));
+    // Dropdown menu toggle
+    if (filterDropdownBtn) {
+      filterDropdownBtn.addEventListener("click", () => {
+        filterDropdownBtn.classList.toggle("open");
+        filterDropdownMenu.classList.toggle("open");
+      });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (filterDropdownBtn && !filterDropdownBtn.contains(e.target) && !filterDropdownMenu.contains(e.target)) {
+        filterDropdownBtn.classList.remove("open");
+        filterDropdownMenu.classList.remove("open");
+      }
+    });
+  
+    function setActiveOption(option) {
+      filterOptions.forEach(o => o.classList.toggle("active", o === option));
+      filterDropdownBtn.classList.remove("open");
+      filterDropdownMenu.classList.remove("open");
     }
   
     function applyFilter(tag, query) {
@@ -99,11 +120,13 @@
       });
     }
   
-    chips.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const tag = btn.dataset.filter;
+    filterOptions.forEach(option => {
+      option.addEventListener("click", () => {
+        const tag = option.dataset.filter;
         activeFilter = tag;
-        setActiveChip(btn);
+        const label = option.textContent;
+        filterLabel.textContent = label;
+        setActiveOption(option);
         applyFilter(tag, projectSearch.value);
       });
     });

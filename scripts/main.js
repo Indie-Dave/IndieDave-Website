@@ -70,37 +70,31 @@
     }
   
     // --- project filter
-    const filterDropdownBtn = $("#filterDropdownBtn") || document.querySelector(".filter-dropdown-btn");
+    // --- project filter
+    const filterDropdownBtn = document.querySelector(".filter-dropdown-btn");
     const filterDropdownMenu = document.querySelector(".filter-dropdown-menu");
-    const filterOptions = $$(".filter-option");
-    const filterLabel = $("#filterLabel");
+    const filterCheckboxes = $$(".filter-checkbox");
     const projects = $$(".project");
     const projectSearch = $("#projectSearch");
-    let activeFilter = "all";
+    let activeFilters = [];
   
-    // Dropdown menu toggle
-    if (filterDropdownBtn) {
+    // Dropdown toggle
+    if (filterDropdownBtn && filterDropdownMenu) {
       filterDropdownBtn.addEventListener("click", () => {
         filterDropdownBtn.classList.toggle("open");
         filterDropdownMenu.classList.toggle("open");
       });
-    }
-    
-    // Close dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-      if (filterDropdownBtn && !filterDropdownBtn.contains(e.target) && !filterDropdownMenu.contains(e.target)) {
-        filterDropdownBtn.classList.remove("open");
-        filterDropdownMenu.classList.remove("open");
-      }
-    });
-  
-    function setActiveOption(option) {
-      filterOptions.forEach(o => o.classList.toggle("active", o === option));
-      filterDropdownBtn.classList.remove("open");
-      filterDropdownMenu.classList.remove("open");
+      
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!filterDropdownBtn.contains(e.target) && !filterDropdownMenu.contains(e.target)) {
+          filterDropdownBtn.classList.remove("open");
+          filterDropdownMenu.classList.remove("open");
+        }
+      });
     }
   
-    function applyFilter(tag, query) {
+    function applyFilter(query) {
       const safeQuery = (query || "").trim().toLowerCase();
       projects.forEach(p => {
         const tags = (p.dataset.tags || "").split(/\s+/).filter(Boolean);
@@ -113,29 +107,31 @@
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
-        const matchesTag = tag === "all" ? true : tags.includes(tag);
+        
+        // If no filters are checked, show all (only filter by search)
+        let matchesFilters = activeFilters.length === 0;
+        
+        // If filters are checked, project must have ALL selected filter tags
+        if (activeFilters.length > 0) {
+          matchesFilters = activeFilters.every(filter => tags.includes(filter));
+        }
+        
         const matchesQuery = safeQuery ? haystack.includes(safeQuery) : true;
-        const show = matchesTag && matchesQuery;
+        const show = matchesFilters && matchesQuery;
         p.style.display = show ? "" : "none";
       });
     }
   
-    filterOptions.forEach(option => {
-      option.addEventListener("click", () => {
-        const tag = option.dataset.filter;
-        activeFilter = tag;
-        const label = option.textContent;
-        filterLabel.textContent = label;
-        setActiveOption(option);
-        applyFilter(tag, projectSearch.value);
+    filterCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener("change", () => {
+        activeFilters = $$(".filter-checkbox:checked").map(cb => cb.dataset.filter);
+        applyFilter(projectSearch.value);
       });
     });
 
     projectSearch.addEventListener("input", (e) => {
-      applyFilter(activeFilter, e.currentTarget.value);
+      applyFilter(e.currentTarget.value);
     });
-  
-    // --- project card flip animation
     $$(".project-btn").forEach(btn => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();

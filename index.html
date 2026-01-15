@@ -157,16 +157,52 @@
                 />
               </label>
               <div class="filter-dropdown-wrapper">
-                <button class="filter-dropdown-btn" type="button" aria-haspopup="listbox" aria-label="Filter by type">
-                  <span id="filterLabel">All Types</span>
+                <button class="filter-dropdown-btn" type="button" aria-haspopup="listbox" aria-label="Filter by categories">
+                  <span>Filters</span>
                   <span class="dropdown-arrow" aria-hidden="true">▼</span>
                 </button>
-                <div class="filter-dropdown-menu" role="listbox" aria-label="Project types">
-                  <button class="filter-option active" data-filter="all" type="button" role="option">All Types</button>
-                  <button class="filter-option" data-filter="games" type="button" role="option">Games</button>
-                  <button class="filter-option" data-filter="vr" type="button" role="option">VR</button>
-                  <button class="filter-option" data-filter="web" type="button" role="option">Web</button>
-                  <button class="filter-option" data-filter="tools" type="button" role="option">Tools</button>
+                <div class="filter-dropdown-menu" role="listbox" aria-label="Project filters">
+                  
+                  <div class="filter-category">
+                    <h4 class="filter-category-title">Engine</h4>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="unity" />
+                      <span>Unity</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="phaser" />
+                      <span>Phaser</span>
+                    </label>
+                  </div>
+
+                  <div class="filter-category">
+                    <h4 class="filter-category-title">Project Type</h4>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="game" />
+                      <span>Game</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="tool" />
+                      <span>Tool</span>
+                    </label>
+                  </div>
+
+                  <div class="filter-category">
+                    <h4 class="filter-category-title">Platform</h4>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="pc" />
+                      <span>PC</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="vr" />
+                      <span>VR</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="web" />
+                      <span>Web</span>
+                    </label>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -174,7 +210,7 @@
 
           <div class="grid" id="projectGrid">
             <!-- Project card template (duplicate + edit) -->
-            <article class="project" data-tags="games">
+            <article class="project" data-tags="unity game pc">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
@@ -216,7 +252,7 @@
               </div>
             </article>
 
-            <article class="project" data-tags="vr games">
+            <article class="project" data-tags="unity game vr">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
@@ -257,7 +293,7 @@
               </div>
             </article>
 
-            <article class="project" data-tags="web">
+            <article class="project" data-tags="phaser game web">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
@@ -298,7 +334,7 @@
               </div>
             </article>
 
-            <article class="project" data-tags="tools games">
+            <article class="project" data-tags="unity tool pc">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
@@ -388,6 +424,7 @@
                 <img src="imgs/tiktok.png" alt="TikTok" class="social-icon" />
                 TikTok
               </a>
+              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-youtube">
                 <img src="imgs/Youtube.png" alt="YouTube" class="social-icon youtube-logo" />
                 YouTube
               </a>

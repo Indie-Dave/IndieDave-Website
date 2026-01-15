@@ -588,9 +588,9 @@ h2 {
 .filter-dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 4px;
+  top: 0;
+  right: 0;
+  margin-top: 48px;
   background: color-mix(in srgb, var(--panel2) 95%, transparent);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -621,14 +621,16 @@ h2 {
 .checkbox-label {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
   cursor: pointer;
   user-select: none;
   padding: 6px 8px;
   border-radius: 6px;
   transition: background-color 0.15s ease;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
+  color: white;
 }
 .checkbox-label:hover {
   background: color-mix(in srgb, var(--text) 8%, transparent);
@@ -643,14 +645,21 @@ h2 {
 .checkbox-label input[type="checkbox"]:checked + span {
   font-weight: 600;
 }
+.checkbox-label span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 .grid {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  justify-content: flex-start;
 }
 .project {
-  flex: 1 1 calc(50% - 7px);
+  width: calc(50% - 7px);
   perspective: 1000px;
 }
 .project-btn {
@@ -825,6 +834,10 @@ h2 {
 .demo-available{
   color: #5bc0de;
   background: color-mix(in srgb, #5bc0de 20%, transparent);
+}
+.cancelled{
+  color: #d9534f;
+  background: color-mix(in srgb, #d9534f 20%, transparent);
 }
 .arrow {
   color: var(--muted);
@@ -1075,7 +1088,6 @@ label span {
   font-weight: 900;
   font-size: 12px;
   color: var(--muted);
-  margin-bottom: 6px;
 }
 input,
 textarea {

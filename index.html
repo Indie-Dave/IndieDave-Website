@@ -143,7 +143,7 @@
               <div class="about-row">
                 <div class="stat stat-with-image stat-bottom-align">
                   <img src="imgs/controller_darkmode.png" alt="Controller" class="stat-image theme-image" data-light="imgs/controller_lightmode.png" data-dark="imgs/controller_darkmode.png" />
-                  <div class="stat-num">2</div>
+                  <div class="stat-num">1</div>
                   <div class="stat-label">Games released</div>
                 </div>
                 <div class="stat stat-with-image stat-bottom-align">
@@ -239,6 +239,26 @@
                     </label>
                   </div>
 
+                  <div class="filter-category">
+                    <h4 class="filter-category-title">Progress</h4>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="released" />
+                      <span>Released</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="playable" />
+                      <span>Playable</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="tooling" />
+                      <span>Tooling</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="cancelled" />
+                      <span>Cancelled</span>
+                    </label>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -246,13 +266,13 @@
 
           <div class="grid" id="projectGrid">
             <!-- Project card template (duplicate + edit) -->
-            <article class="project" data-tags="unity game pc">
+            <article class="project" data-tags="unity game pc released">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
                     class="project-btn"
                     type="button"
-                    data-title="Tank Roguelike Prototype"
+                    data-title="Project title"
                     data-tags="Unity • Roguelike • Physics"
                     data-desc="A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms."
                     data-bullets="Responsive tank controller|Upgrade system (data-driven)|Wave spawner + difficulty scaling|UI: run summary + upgrades"
@@ -288,13 +308,13 @@
               </div>
             </article>
 
-            <article class="project" data-tags="unity game vr">
+            <article class="project" data-tags="unity game pc cancelled">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
                     class="project-btn"
                     type="button"
-                    data-title="Quest VR Sandbox"
+                    data-title="Timeout"
                     data-tags="VR • Meta Quest • XR"
                     data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
                     data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
@@ -305,21 +325,20 @@
                         <div class="thumb-inner">VR</div>
                       </div>
                       <div class="project-meta">
-                        <h3>Quest VR Sandbox</h3>
-                        <p>VR • Meta Quest • XR</p>
+                        <h3>Timeout</h3>
+                        <p>Type:  Game</p>
+                        <p>Genre: Puzzle, Parkour</p>
+                        <p>Engine: Unity</p>
                       </div>
                     </div>
-                    <p class="project-desc">
-                      Comfort-first interactions and snappy weapon feel.
-                    </p>
                     <div class="project-foot">
-                      <span class="development-status">Prototype</span>
+                      <span class="development-status cancelled">Cancelled</span>
                       <span class="arrow" aria-hidden="true">→</span>
                     </div>
                   </button>
                 </div>
                 <div class="project-card-back">
-                  <h3>Quest VR Sandbox</h3>
+                  <h3>Timeout</h3>
                   <p>Hand interactions, holsters, and weapon handling tuned for comfort and speed.</p>
                   <div class="project-card-back-links">
                     <a href="#" target="_blank" rel="noreferrer">Demo</a>
@@ -329,7 +348,7 @@
               </div>
             </article>
 
-            <article class="project" data-tags="phaser game web">
+            <article class="project" data-tags="phaser game web playable">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
@@ -370,7 +389,7 @@
               </div>
             </article>
 
-            <article class="project" data-tags="unity tool pc">
+            <article class="project" data-tags="unity tool pc tooling">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button

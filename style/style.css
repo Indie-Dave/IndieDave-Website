@@ -100,7 +100,7 @@ a:hover {
 .topbar-content {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 12px;
 }
 
@@ -168,6 +168,91 @@ a:hover {
 }
 .icon-btn:hover {
   filter: brightness(1.06);
+}
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px;
+}
+.hamburger-line {
+  width: 28px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger-btn.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+.hamburger-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  flex-direction: column;
+  gap: 0;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel) 95%, transparent);
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.3s ease;
+}
+.mobile-nav.open {
+  display: flex;
+  animation: slideDown 0.3s ease;
+}
+.mobile-nav a {
+  padding: 12px 16px;
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+.mobile-nav a:hover {
+  background: color-mix(in srgb, var(--text) 10%, transparent);
+  text-decoration: none;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 900px) {
+  .hamburger-btn {
+    display: flex;
+  }
+  .nav {
+    display: none;
+  }
 }
 
 .hero {

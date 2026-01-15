@@ -8,6 +8,38 @@
     // --- footer year + name sync
     $("#year").textContent = String(new Date().getFullYear());
     $("#footerName").textContent = $("#devName").textContent;
+
+    // --- hamburger menu
+    const hamburgerBtn = $("#hamburgerBtn");
+    const mobileNav = $("#mobileNav");
+    const mobileNavLinks = $$(".mobile-nav a");
+
+    if (hamburgerBtn && mobileNav) {
+      hamburgerBtn.addEventListener("click", () => {
+        const isOpen = hamburgerBtn.classList.contains("open");
+        hamburgerBtn.classList.toggle("open");
+        mobileNav.classList.toggle("open");
+        hamburgerBtn.setAttribute("aria-expanded", !isOpen);
+      });
+
+      // Close menu when a link is clicked
+      mobileNavLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          hamburgerBtn.classList.remove("open");
+          mobileNav.classList.remove("open");
+          hamburgerBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!hamburgerBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+          hamburgerBtn.classList.remove("open");
+          mobileNav.classList.remove("open");
+          hamburgerBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
   
     // --- theme (persist)
     const THEME_KEY = "portfolio_theme";

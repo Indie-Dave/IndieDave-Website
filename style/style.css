@@ -807,13 +807,24 @@ h2 {
   justify-content: space-between;
   margin-top: 12px;
 }
-.badge {
+.development-status {
   font-size: 12px;
   font-weight: 900;
   border: 1px solid var(--border);
   padding: 6px 9px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--panel2) 70%, transparent);
+}
+.in-progress{
+  color: #f0ad4e;
+}
+.released{
+  color: #5cb85c;
+  background: color-mix(in srgb, #5cb85c 20%, transparent);
+}
+.demo-available{
+  color: #5bc0de;
+  background: color-mix(in srgb, #5bc0de 20%, transparent);
 }
 .arrow {
   color: var(--muted);

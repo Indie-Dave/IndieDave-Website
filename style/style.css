@@ -47,8 +47,9 @@ input,
 textarea,
 .nav a,
 .footer-links a,
-.section.alt {
-  transition: background-color 0.35s ease, color 0.35s ease,
+.section.alt,
+* {
+  transition: background-color 0.75s ease, color 0.35s ease,
     border-color 0.35s ease, box-shadow 0.35s ease;
 }
 

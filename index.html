@@ -27,18 +27,20 @@
 
         <div class="topbar-content">
           <a href="#home" class="nav-home">Home</a>
-          <button
-            id="hamburgerBtn"
-            class="hamburger-btn"
-            type="button"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-            aria-controls="mobileNav"
-          >
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
+          <div class="hamburger-container">
+            <button
+              id="hamburgerBtn"
+              class="hamburger-btn"
+              type="button"
+              aria-label="Toggle menu"
+              aria-expanded="false"
+              aria-controls="mobileNav"
+            >
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </button>
+          </div>
           <nav class="nav" aria-label="Primary">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
@@ -46,17 +48,15 @@
             <a href="#contact" class="pill">Contact</a>
           </nav>
 
-          <div class="actions">
-            <button
-              id="themeBtn"
-              class="icon-btn"
-              type="button"
-              aria-label="Toggle theme"
-              title="Toggle theme"
-            >
-              <span aria-hidden="true">◐</span>
-            </button>
-          </div>
+          <button
+            id="themeBtn"
+            class="icon-btn"
+            type="button"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            <span aria-hidden="true">◐</span>
+          </button>
         </div>
         <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation">
           <a href="#about">About</a>

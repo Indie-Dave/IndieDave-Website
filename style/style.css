@@ -224,6 +224,8 @@ a:hover {
   margin-top: 8px;
 }
 .hero-link-btn {
+  flex: 1;
+  min-width: 120px;
   padding: 8px 14px;
   font-size: 14px;
   font-weight: 700;
@@ -236,11 +238,23 @@ a:hover {
   white-space: nowrap;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  text-decoration: none;
 }
 .hero-link-btn:hover {
   text-decoration: none;
   filter: brightness(1.07);
+}
+.hero-itchio {
+  background: #fa5c4d !important;
+  border-color: #fa5c4d !important;
+  color: #ffffff !important;
+}
+.hero-youtube {
+  background: #ff0000 !important;
+  border-color: #ff0000 !important;
+  color: #ffffff !important;
 }
 
 .social-icon {
@@ -257,6 +271,36 @@ a:hover {
   flex-shrink: 0;
   border: 1px solid #ffffff;
   border-radius: 4px;
+  box-sizing: border-box;
+}
+.social-icon.itchio-logo {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.social-icon.discord-logo {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.social-icon.reddit-logo {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.social-icon.instagram-logo {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.social-icon.tiktok-logo {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.social-icon.patreon-logo {
+  border: 1px solid #ffffff;
+  border-radius: 25%;
   box-sizing: border-box;
 }
 .kicker {
@@ -597,6 +641,26 @@ h2 {
   gap: 12px;
   margin-bottom: 10px;
 }
+.projects-links {
+  text-align: center;
+  margin-top: 24px;
+  padding: 0 16px;
+}
+.projects-links p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 12px 0;
+}
+.projects-links-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.projects-links-buttons .social-btn {
+  flex: 0 1 auto;
+  min-width: 140px;
+}
 .thumb {
   width: 46px;
   height: 46px;
@@ -788,7 +852,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0.5em;
   transition: filter 0.2s ease;
 }
 .social-btn:hover {
@@ -807,8 +871,8 @@ h2 {
 
 /* Social button brand colors */
 .social-patreon {
-  background: #ff424d !important;
-  border-color: #ff424d !important;
+  background: #ff6b35 !important;
+  border-color: #ff6b35 !important;
   color: #ffffff !important;
 }
 .social-github {
@@ -835,7 +899,11 @@ h2 {
 }
 .social-tiktok {
   background: #000000 !important;
-  border-color: #000000 !important;
+  border: 2px solid transparent !important;
+  border-radius: 14px !important;
+  background-image: linear-gradient(#000000, #000000), linear-gradient(135deg, #00f7ef 0%, #ff0050 100%) !important;
+  background-origin: padding-box, border-box !important;
+  background-clip: padding-box, border-box !important;
   color: #ffffff !important;
 }
 .social-youtube {
@@ -848,9 +916,19 @@ h2 {
   border-color: #000000 !important;
   color: #ffffff !important;
 }
+.social-twitch {
+  background: #9146ff !important;
+  border-color: #9146ff !important;
+  color: #ffffff !important;
+}
 .social-reddit {
   background: #ff4500 !important;
   border-color: #ff4500 !important;
+  color: #ffffff !important;
+}
+.social-itchio {
+  background: #fa5c4d !important;
+  border-color: #fa5c4d !important;
   color: #ffffff !important;
 }
 

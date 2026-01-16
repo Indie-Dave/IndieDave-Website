@@ -825,6 +825,10 @@ h2 {
   border-radius: 999px;
   background: color-mix(in srgb, var(--panel2) 70%, transparent);
 }
+.release-date {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
 .development-status {
   font-size: 12px;
   font-weight: 900;
@@ -832,6 +836,20 @@ h2 {
   padding: 6px 9px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--panel2) 70%, transparent);
+  position: relative;
+}
+.development-status[data-release-date]::before {
+  content: attr(data-release-date);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  pointer-events: none;
 }
 .in-development{
   color: #f0ad4e;

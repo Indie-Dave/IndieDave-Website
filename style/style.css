@@ -338,7 +338,7 @@ a:hover {
   padding: 8px 14px;
   font-size: 14px;
   font-weight: 700;
-  border: 1px solid var(--border);
+  border: 1px solid #ffffff;
   background: color-mix(in srgb, var(--panel) 70%, transparent);
   color: var(--text);
   border-radius: 10px;
@@ -357,12 +357,10 @@ a:hover {
 }
 .hero-itchio {
   background: #fa5c4d !important;
-  border-color: #fa5c4d !important;
   color: #ffffff !important;
 }
 .hero-youtube {
   background: #ff0000 !important;
-  border-color: #ff0000 !important;
   color: #ffffff !important;
 }
 
@@ -929,10 +927,17 @@ h2 {
   grid-template-columns: 1.3fr 0.7fr;
   gap: 14px;
 }
-.about-info {
-  margin-top: 10px;
-  color: var(--muted);
+.about-question {
+  font-size: 120%;
+  font-weight: 800;
+  margin: 0;  
+  color: #dddddd;
   line-height: 1.6;
+}
+.about-answer {
+  margin-top: 0;
+  line-height: 1.6;
+  margin-bottom: 40px;
 }
 .about-row {
   display: flex;
@@ -1064,17 +1069,17 @@ h2 {
 /* Social button brand colors */
 .social-patreon {
   background: #ff6b35 !important;
-  border-color: #ff6b35 !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
 }
 .social-github {
   background: #24292f !important;
-  border-color: #24292f !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
 }
 .social-discord {
   background: #5865f2 !important;
-  border-color: #5865f2 !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
 }
 .social-instagram {
@@ -1100,27 +1105,22 @@ h2 {
 }
 .social-youtube {
   background: #ff0000 !important;
-  border-color: #ff0000 !important;
-  color: #ffffff !important;
-}
-.social-x {
-  background: #000000 !important;
-  border-color: #000000 !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
 }
 .social-twitch {
   background: #9146ff !important;
-  border-color: #9146ff !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
 }
 .social-reddit {
   background: #ff4500 !important;
-  border-color: #ff4500 !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
 }
 .social-itchio {
   background: #fa5c4d !important;
-  border-color: #fa5c4d !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
 }
 

@@ -198,18 +198,6 @@
                   <span class="dropdown-arrow" aria-hidden="true">▼</span>
                 </button>
                 <div class="filter-dropdown-menu" role="listbox" aria-label="Project filters">
-                  
-                  <div class="filter-category">
-                    <h4 class="filter-category-title">Engine</h4>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="unity" />
-                      <span>Unity</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="phaser" />
-                      <span>Phaser</span>
-                    </label>
-                  </div>
 
                   <div class="filter-category">
                     <h4 class="filter-category-title">Project Type</h4>
@@ -220,6 +208,22 @@
                     <label class="checkbox-label">
                       <input type="checkbox" class="filter-checkbox" data-filter="tool" />
                       <span>Tool</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="website" />
+                      <span>Website</span>
+                    </label>
+                  </div>
+
+                  <div class="filter-category">
+                    <h4 class="filter-category-title">Engine</h4>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="unity" />
+                      <span>Unity</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="phaser" />
+                      <span>Phaser</span>
                     </label>
                   </div>
 
@@ -246,12 +250,16 @@
                       <span>Released</span>
                     </label>
                     <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="playable" />
-                      <span>Playable</span>
+                      <input type="checkbox" class="filter-checkbox" data-filter="in-development" />
+                      <span>In Development</span>
                     </label>
                     <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="tooling" />
-                      <span>Tooling</span>
+                      <input type="checkbox" class="filter-checkbox" data-filter="closed-alpha" />
+                      <span>Closed Alpha</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="filter-checkbox" data-filter="open-beta" />
+                      <span>Open Beta</span>
                     </label>
                     <label class="checkbox-label">
                       <input type="checkbox" class="filter-checkbox" data-filter="cancelled" />
@@ -287,9 +295,11 @@
                         <p>Type: Game</p>
                         <p>Genre: Horror</p>
                         <p>Engine: Unity</p>
+                        <p>Platforms: PC</p>
                       </div>
                     </div>
                     <div class="project-foot">
+                      <span class="pricetag">Free To Play</span>
                       <span class="development-status released">Released</span>
                       <span class="arrow" aria-hidden="true">→</span>
                     </div>
@@ -329,6 +339,7 @@
                         <p>Type:  Game</p>
                         <p>Genre: Puzzle, Parkour</p>
                         <p>Engine: Unity</p>
+                        <p>Platforms: PC</p>
                       </div>
                     </div>
                     <div class="project-foot">
@@ -349,13 +360,13 @@
               </div>
             </article>
 
-            <article class="project" data-tags="phaser game web playable">
+            <article class="project" data-tags="phaser game web in-development">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
                     class="project-btn"
                     type="button"
-                    data-title="Arcade .io Web Game"
+                    data-title="Arcade .io Web Game Bomberman"
                     data-tags="Web • Phaser • Multiplayer-ready"
                     data-desc="A fast browser prototype with quick rounds, simple matchmaking, and retro visuals."
                     data-bullets="Phaser scene + input|Projectile + wind system|UI: lobby + HUD|Performance pass"
@@ -366,15 +377,15 @@
                         <div class="thumb-inner">IO</div>
                       </div>
                       <div class="project-meta">
-                        <h3>Arcade .io Web Game</h3>
-                        <p>Web • Phaser • PvP</p>
+                        <h3>Bombs.io</h3>
+                        <p>Type: Game</p>
+                        <p>Genre: Arcade, .io</p>
+                        <p>Engine: Phaser</p>
+                        <p>Platforms: Web (PC, Mobile)</p>
                       </div>
                     </div>
-                    <p class="project-desc">
-                      Quick-to-learn PvP loop with strong readability.
-                    </p>
                     <div class="project-foot">
-                      <span class="development-status">Playable</span>
+                      <span class="development-status in-development">In Development</span>
                       <span class="arrow" aria-hidden="true">→</span>
                     </div>
                   </button>
@@ -390,7 +401,7 @@
               </div>
             </article>
 
-            <article class="project" data-tags="unity tool pc tooling">
+            <article class="project" data-tags="unity tool pc in-development">
               <div class="project-card-flip">
                 <div class="project-card-front">
                   <button
@@ -411,11 +422,8 @@
                         <p>Unity • Tools • Editor</p>
                       </div>
                     </div>
-                    <p class="project-desc">
-                      Fast iteration toolchain for building levels.
-                    </p>
                     <div class="project-foot">
-                      <span class="development-status">Tooling</span>
+                      <span class="development-status in-development"> In Development</span>
                       <span class="arrow" aria-hidden="true">→</span>
                     </div>
                   </button>
@@ -430,6 +438,10 @@
                 </div>
               </div>
             </article>
+            <div class="no-projects-found" id="noProjectsFound">
+              <h3>Sorry, we couldn't find any projects</h3>
+              <p>Try adjusting your filters or search terms</p>
+            </div>
           </div>
           <div class="projects-links">
             <p>Go check them out here</p>

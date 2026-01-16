@@ -757,7 +757,14 @@ h2 {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 10px;
+  height: 80%;
+}
+.project-foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  height: 20%;
 }
 .projects-links {
   text-align: center;
@@ -810,11 +817,13 @@ h2 {
   color: var(--muted);
   line-height: 1.6;
 }
-.project-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 12px;
+.pricetag {
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid var(--border);
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel2) 70%, transparent);
 }
 .development-status {
   font-size: 12px;
@@ -824,12 +833,21 @@ h2 {
   border-radius: 999px;
   background: color-mix(in srgb, var(--panel2) 70%, transparent);
 }
-.in-progress{
+.in-development{
   color: #f0ad4e;
+  background: color-mix(in srgb, #f0ad4e 20%, transparent);
 }
 .released{
   color: #5cb85c;
   background: color-mix(in srgb, #5cb85c 20%, transparent);
+}
+.closed-alpha{
+  color: #9b59b6;
+  background: color-mix(in srgb, #9b59b6 20%, transparent);
+}
+.open-beta{
+  color: #3498db;
+  background: color-mix(in srgb, #3498db 20%, transparent);
 }
 .demo-available{
   color: #5bc0de;
@@ -842,6 +860,29 @@ h2 {
 .arrow {
   color: var(--muted);
   font-weight: 900;
+}
+
+.no-projects-found {
+  width: 100%;
+  text-align: center;
+  padding: 48px 16px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel) 78%, transparent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: none;
+}
+.no-projects-found.show {
+  display: block;
+}
+.no-projects-found h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+.no-projects-found p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .cols {

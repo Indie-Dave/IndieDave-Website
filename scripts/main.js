@@ -128,6 +128,8 @@
   
     function applyFilter(query) {
       const safeQuery = (query || "").trim().toLowerCase();
+      let visibleCount = 0;
+      
       projects.forEach(p => {
         const tags = (p.dataset.tags || "").split(/\s+/).filter(Boolean);
         const button = $(".project-btn", p);
@@ -151,7 +153,15 @@
         const matchesQuery = safeQuery ? haystack.includes(safeQuery) : true;
         const show = matchesFilters && matchesQuery;
         p.style.display = show ? "" : "none";
+        
+        if (show) visibleCount++;
       });
+      
+      // Show/hide no projects found message
+      const noProjectsCard = $("#noProjectsFound");
+      if (noProjectsCard) {
+        noProjectsCard.classList.toggle("show", visibleCount === 0);
+      }
     }
   
     filterCheckboxes.forEach(checkbox => {

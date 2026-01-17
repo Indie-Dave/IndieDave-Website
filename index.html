@@ -1,733 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>IndieDave's Website</title>
-    <meta
-      name="description"
-      content="Indie game developer portfolio — projects, skills, and contact."
-    />
-    <link rel="stylesheet" href="style/style.css" />
-    <script>
-      // Load theme before page renders to prevent flash
-      const saved = localStorage.getItem("portfolio_theme");
-      if (saved === "light" || saved === "dark") {
-        document.documentElement.dataset.theme = saved;
-      }
-    </script>
-  </head>
 
-  <body>
-    <a class="skip" href="#main">Skip to content</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IndieDave's Website</title>
+  <meta name="description" content="Indie game developer portfolio — projects, skills, and contact." />
+  <link rel="stylesheet" href="style/style.css" />
+  <script>
+    // Load theme before page renders to prevent flash
+    const saved = localStorage.getItem("portfolio_theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.dataset.theme = saved;
+    }
+  </script>
+</head>
 
-    <header class="topbar">
-      <div class="container topbar-inner">
-        <div class="sr-only" id="devName">Developer</div>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-        <div class="topbar-content">
-          <a href="#home" class="nav-home">Home</a>
-          <div class="hamburger-container">
-            <button
-              id="hamburgerBtn"
-              class="hamburger-btn"
-              type="button"
-              aria-label="Toggle menu"
-              aria-expanded="false"
-              aria-controls="mobileNav"
-            >
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
-            </button>
-          </div>
-          <nav class="nav" aria-label="Primary">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#devlogs">Devlogs</a>
-            <a href="#socials">Socials</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact" class="pill">Contact</a>
-          </nav>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="sr-only" id="devName">Developer</div>
 
-          <button
-            id="themeBtn"
-            class="icon-btn"
-            type="button"
-            aria-label="Toggle theme"
-            title="Toggle theme"
-          >
-            <span aria-hidden="true">◐</span>
+      <div class="topbar-content">
+        <a href="#home" class="nav-home">Home</a>
+        <div class="hamburger-container">
+          <button id="hamburgerBtn" class="hamburger-btn" type="button" aria-label="Toggle menu" aria-expanded="false"
+            aria-controls="mobileNav">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
           </button>
         </div>
-        <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation">
+        <nav class="nav" aria-label="Primary">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#devlogs">Devlogs</a>
           <a href="#socials">Socials</a>
           <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact" class="pill">Contact</a>
         </nav>
+
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <span aria-hidden="true">◐</span>
+        </button>
       </div>
-    </header>
+      <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#devlogs">Devlogs</a>
+        <a href="#socials">Socials</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="container hero-inner">
-          <div class="hero-image-center">
-            <img
-              src="imgs/IndieDave.png"
-              alt="IndieDave"
-              class="hero-main-image"
-            />
-          </div>
-          <div>
-            <h1>
-              Hi there, my name is <span class="accent hero-name">IndieDave</span>
-            </h1>
-            <div class="hero-text-block">
-              <h2>
-                <span>I like Video Games and I make Video Games</span>
-              </h2>
-              <p>I also make Devlogs about my games <span class="cursive">occasionally</span></p>
-              <div class="hero-buttons">
-                <a href="#" target="_blank" rel="noreferrer" class="hero-link-btn hero-itchio">
-                  <img src="imgs/itch_io.png" alt="Itch.io" class="social-icon itchio-logo" />
-                  Itch.io
-                </a>
-                <a href="#" target="_blank" rel="noreferrer" class="hero-link-btn hero-youtube">
-                  <img src="imgs/Youtube.png" alt="YouTube" class="social-icon youtube-logo" />
-                  YouTube
-                </a>
-              </div>
-            </div>
-          </div>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-image-center">
+          <img src="imgs/IndieDave.png" alt="IndieDave" class="hero-main-image" />
         </div>
-      </section>
-
-      <section id="about" class="section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>About</h2>
-              <p class="sub">A bit about me and what I do.</p>
-            </div>
-          </div>
-
-          <div class="about-content">
-            <div class="card">
-              <p class="about-question">
-                Who am I?
-              </p>
-              <p class="about-answer">
-                I'm IndieDave. I'm an Indie Game Developer and Content Creator.
-                I've been developing games since I was a kid, and it's my main passion.
-              </p>
-              <p class="about-question">
-                What do I do?
-              </p>
-              <p class="about-answer">
-                I mainly develop games, though I'm also into modelling, animating, web-development, Video-Editing, etc. 
-              </p>
-              <p class="about-question">
-                What are my goals?
-              </p>
-              <p class="about-answer">
-                My main goal is to entertain. Plain and simple.
-                <br>
-                I value simplicity over complexity in all of my projects.
-                <br>
-                I also share templates, tools and tips to help other developers.
-              </p>
-              <div class="about-row">
-                <div class="stat stat-with-image stat-bottom-align">
-                  <img src="imgs/controller_darkmode.png" alt="Controller" class="stat-image theme-image" data-light="imgs/controller_lightmode.png" data-dark="imgs/controller_darkmode.png" />
-                  <div class="stat-num">1</div>
-                  <div class="stat-label">Games released</div>
-                </div>
-                <div class="stat stat-with-image stat-bottom-align">
-                  <img src="imgs/controller_darkmode.png" alt="Controller" class="stat-image theme-image" data-light="imgs/controller_lightmode.png" data-dark="imgs/controller_darkmode.png" />
-                  <div class="stat-num">1</div>
-                  <div class="stat-label">Devlogs made</div>
-                </div>
-                <div class="stat stat-with-image stat-bottom-align">
-                  <img src="imgs/unity_darkmode.png" alt="Unity Logo" class="stat-image theme-image" data-light="imgs/unity_lightmode.png" data-dark="imgs/unity_darkmode.png" />
-                  <div class="stat-num">Unity</div>
-                  <div class="stat-label">Favourite Engine</div>
-                </div>
-                <div class="stat stat-with-languages stat-bottom-align">
-                  <div class="stat-languages">
-                    <img src="imgs/Logo_Csharp.png" alt="C#" class="language-logo language-logo-1" />
-                    <img src="imgs/Logo_Cpp.png" alt="C++" class="language-logo language-logo-2" />
-                    <img src="imgs/python.png" alt="Python" class="language-logo language-logo-3" />
-                    <img src="imgs/javascript.png" alt="JavaScript" class="language-logo language-logo-4" />
-                  </div>
-                  <div class="stat-num">C# | C++ | Python | JavaScript</div>
-                  <div class="stat-label">Programming Languages I use</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Projects</h2>
-              <p class="sub">
-                A few things I’ve built — click a card for details.
-              </p>
-            </div>
-
-            <div class="filters" role="group" aria-label="Project filters">
-              <label class="filter-input">
-                <span class="sr-only">Search projects</span>
-                <input
-                  id="projectSearch"
-                  type="search"
-                  placeholder="Search projects..."
-                />
-              </label>
-              <div class="filter-dropdown-wrapper">
-                <button class="filter-dropdown-btn" type="button" aria-haspopup="listbox" aria-label="Filter by categories">
-                  <span>Filters</span>
-                  <span class="dropdown-arrow" aria-hidden="true">▼</span>
-                </button>
-                <div class="filter-dropdown-menu" role="listbox" aria-label="Project filters">
-
-                  <div class="filter-category">
-                    <h4 class="filter-category-title">Project Type</h4>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="game" />
-                      <span>Game</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="tool" />
-                      <span>Tool</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="website" />
-                      <span>Website</span>
-                    </label>
-                  </div>
-
-                  <div class="filter-category">
-                    <h4 class="filter-category-title">Engine</h4>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="unity" />
-                      <span>Unity</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="phaser" />
-                      <span>Phaser</span>
-                    </label>
-                  </div>
-
-                  <div class="filter-category">
-                    <h4 class="filter-category-title">Platform</h4>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="pc" />
-                      <span>PC</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="vr" />
-                      <span>VR</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="web" />
-                      <span>Web</span>
-                    </label>
-                  </div>
-
-                  <div class="filter-category">
-                    <h4 class="filter-category-title">Progress</h4>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="released" />
-                      <span>Released</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="in-development" />
-                      <span>In Development</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="closed-alpha" />
-                      <span>Closed Alpha</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="open-beta" />
-                      <span>Open Beta</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" class="filter-checkbox" data-filter="cancelled" />
-                      <span>Cancelled</span>
-                    </label>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid" id="projectGrid">
-            <!-- Project card template (duplicate + edit) -->
-            <article class="project" data-tags="unity game pc released">
-              <div class="project-card-flip">
-                <div class="project-card-front">
-                  <button
-                    class="project-btn"
-                    type="button"
-                    data-title="Project title"
-                    data-tags="Unity • Roguelike • Physics"
-                    data-desc="A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms."
-                    data-bullets="Responsive tank controller|Upgrade system (data-driven)|Wave spawner + difficulty scaling|UI: run summary + upgrades"
-                    data-links="Gameplay Clip,#|GitHub,#|Itch.io,#"
-                  >
-                    <div class="project-top">
-                      <div class="thumb" aria-hidden="true">
-                        <div class="thumb-inner">TR</div>
-                      </div>
-                      <div class="project-meta">
-                        <h3>Get a Job!</h3>
-                        <p>Type: Game</p>
-                        <p>Genre: Horror</p>
-                        <p>Engine: Unity</p>
-                        <p>Platforms: PC</p>
-                        <p>Last Updated: 31.10.2025</p>
-                      </div>
-                    </div>
-                    <div class="project-foot">
-                      <span class="pricetag">Free To Play</span>
-                      <span class="development-status released" data-release-date="31.10.2025">Released</span>
-                      <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                  </button>
-                </div>
-                <div class="project-card-back">
-                  <h3>Get a Job!</h3>
-                  <p>Get a Job! is a satirical Horror Game that I created shortly after the whole thing with the unemployment form meme got popular.</p>
-                  <p>The goal of the game is to complete tasks while running away from an evil unemployment form</p>
-                  <div class="project-card-back-links">
-                    <a href="#" target="_blank" rel="noreferrer">Gameplay Clip</a>
-                    <a href="#" target="_blank" rel="noreferrer">Itch.io</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="project" data-tags="unity game pc cancelled">
-              <div class="project-card-flip">
-                <div class="project-card-front">
-                  <button
-                    class="project-btn"
-                    type="button"
-                    data-title="Timeout"
-                    data-tags="VR • Meta Quest • XR"
-                    data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
-                    data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
-                    data-links="Demo,#|GitHub,#"
-                  >
-                    <div class="project-top">
-                      <div class="thumb" aria-hidden="true">
-                        <div class="thumb-inner">VR</div>
-                      </div>
-                      <div class="project-meta">
-                        <h3>Timeout</h3>
-                        <p>Type:  Game</p>
-                        <p>Genre: Puzzle, Parkour</p>
-                        <p>Engine: Unity</p>
-                        <p>Platforms: PC</p>
-                        <p>Last Updated: 31.10.2025</p>
-                      </div>
-                    </div>
-                    <div class="project-foot">
-                      <span class="development-status cancelled">Cancelled</span>
-                      <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                  </button>
-                </div>
-                <div class="project-card-back">
-                  <h3>Timeout</h3>
-                  <p>Timeout is a fast paced puzzle parkour game with a mechanically rich and intense movement system. </p>
-                  <p>The project was meant to become a full game, but I decided to keep it as a simple Demo for testing and reviewing purposes.</p>
-                  <p>I cancelled the project due to lack of updates and ideas</p>
-                  <div class="project-card-back-links">
-                    <a href="https://itch.io" target="_blank" rel="noreferrer">Demo</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="project" data-tags="phaser game web in-development">
-              <div class="project-card-flip">
-                <div class="project-card-front">
-                  <button
-                    class="project-btn"
-                    type="button"
-                    data-title="Arcade .io Web Game Bomberman"
-                    data-tags="Web • Phaser • Multiplayer-ready"
-                    data-desc="A fast browser prototype with quick rounds, simple matchmaking, and retro visuals."
-                    data-bullets="Phaser scene + input|Projectile + wind system|UI: lobby + HUD|Performance pass"
-                    data-links="Play,#|GitHub,#"
-                  >
-                    <div class="project-top">
-                      <div class="thumb" aria-hidden="true">
-                        <div class="thumb-inner">IO</div>
-                      </div>
-                      <div class="project-meta">
-                        <h3>Bombs.io</h3>
-                        <p>Type: Game</p>
-                        <p>Genre: Arcade, .io</p>
-                        <p>Engine: Phaser</p>
-                        <p>Platforms: Web (PC, Mobile)</p>
-                        <p>Last Updated: 31.10.2025</p>
-                      </div>
-                    </div>
-                    <div class="project-foot">
-                      <span class="development-status in-development" data-release-date="Planned Release Date: Spring 2026">In Development</span>
-                      <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                  </button>
-                </div>
-                <div class="project-card-back">
-                  <h3>Bombs.io</h3>
-                  <p>A browser game inspired by Bomberman, where players throw bombs to kill players and destroy boxes which drop powerups.</p>
-                  <p>The game is currently in development and will be released somewhere around Spring 2026</p>
-                  <div class="project-card-back-links">
-                    <a href="#" target="_blank" rel="noreferrer">Play on bombs.io</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="project" data-tags="unity tool pc in-development">
-              <div class="project-card-flip">
-                <div class="project-card-front">
-                  <button
-                    class="project-btn"
-                    type="button"
-                    data-title="Procedural Terrain Tool"
-                    data-tags="Unity • Tools • Editor"
-                    data-desc="A Unity editor tool for generating terrain, paths, and structure placement with rules per layer."
-                    data-bullets="Custom inspector UI|Regenerate / Reset workflow|Path + structure rules|Separate water terrain toggle"
-                    data-links="GitHub,#"
-                  >
-                    <div class="project-top">
-                      <div class="thumb" aria-hidden="true">
-                        <div class="thumb-inner">TG</div>
-                      </div>
-                      <div class="project-meta">
-                        <h3>Procedural Terrain Generator</h3>
-                        <p>Type: Tool</p>
-                        <p>Engine: Unity</p>
-                      </div>
-                    </div>
-                    <div class="project-foot">
-                      <span class="development-status in-development" data-release-date="2025"> In Development</span>
-                      <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                  </button>
-                </div>
-                <div class="project-card-back">
-                  <h3>Procedural Terrain Tool</h3>
-                  <p>A Unity editor tool for generating terrain, paths, and structure placement with rules per layer.</p>
-                  <div class="project-card-back-links">
-                    <a href="#" target="_blank" rel="noreferrer">GitHub</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <div class="no-projects-found" id="noProjectsFound">
-              <h3>Sorry, we couldn't find any projects</h3>
-              <p>Try adjusting your filters or search terms</p>
-            </div>
-          </div>
-          <div class="projects-links">
-            <p>Go check them out here</p>
-            <div class="projects-links-buttons">
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-itchio">
+        <div>
+          <h1>
+            Hi there, my name is <span class="accent hero-name">IndieDave</span>
+          </h1>
+          <div class="hero-text-block">
+            <h2>
+              <span>I like Video Games and I make Video Games</span>
+            </h2>
+            <p>I also make Devlogs about my games <span class="cursive">occasionally</span></p>
+            <div class="hero-buttons">
+              <a href="https://indiedave.itch.io/" target="_blank" rel="noreferrer" class="hero-link-btn hero-itchio">
                 <img src="imgs/itch_io.png" alt="Itch.io" class="social-icon itchio-logo" />
                 Itch.io
               </a>
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-github">
-                <img src="imgs/github.png" alt="GitHub" class="social-icon theme-image" data-light="imgs/github.png" data-dark="imgs/github.png" />
-                GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- DEVLOG -->
-      <section id="devlogs" class="section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Devlogs</h2>
-            <!--un--><span class="sub">Funny videos where I show off the development of my games</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <p>Coming soon! Check back for development updates and behind-the-scenes content.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SOCIALS -->
-      <section id="socials" class="section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Socials</h2>
-              <p class="sub">Follow and support on your favorite platform.</p>
-            </div>
-          </div>
-
-          <div class="socials">
-            <a
-              href="#"
-              target="_blank"
-              rel="noreferrer"
-              class="social-btn social-btn-large social-patreon"
-            >
-              <img src="imgs/patreon.png" alt="Patreon" class="social-icon patreon-logo" />
-              Patreon
-            </a>
-            <div class="socials-grid">
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-youtube">
+              <a href="https://www.youtube.com/@IndieDaveee" target="_blank" rel="noreferrer"
+                class="hero-link-btn hero-youtube">
                 <img src="imgs/Youtube.png" alt="YouTube" class="social-icon youtube-logo" />
                 YouTube
               </a>
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-discord">
-                <img src="imgs/discord.png" alt="Discord" class="social-icon discord-logo" />
-                Discord
-              </a>
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-instagram">
-                <img src="imgs/instagram.png" alt="Instagram" class="social-icon instagram-logo" />
-                Instagram
-              </a>
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-twitch">
-                <img src="imgs/twitch.png" alt="Twitch" class="social-icon twitch-logo" />
-                Twitch
-              </a>
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-reddit">
-                <img src="imgs/reddit.png" alt="Reddit" class="social-icon reddit-logo" />
-                Reddit
-              </a>
-              <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-tiktok">
-                <img src="imgs/tiktok.png" alt="TikTok" class="social-icon tiktok-logo" />
-                TikTok
-              </a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- FAQ -->
-      <section id="faq" class="section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>FAQ</h2>
-              <p class="sub">Frequently asked questions</p>
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>About</h2>
+            <p class="sub">A bit about me and what I do.</p>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="card">
+            <p class="question">
+              Who am I?
+            </p>
+            <p class="answer">
+              I'm IndieDave. I'm an Indie Game Developer and Content Creator.
+              I've been developing games since I was a kid, and it's my main passion.
+            </p>
+            <p class="question">
+              What do I do?
+            </p>
+            <p class="answer">
+              I mainly develop games, though I'm also into modelling, animating, web-development, Video-Editing, etc.
+            </p>
+            <p class="question">
+              What are my goals?
+            </p>
+            <p class="answer">
+              My main goal is to entertain. Plain and simple.
+              <br>
+              I value simplicity over complexity in all of my projects.
+              <br>
+              I also share templates, tools and tips to help other developers.
+            </p>
+            <div class="about-row">
+              <div class="stat stat-with-image stat-bottom-align">
+                <img src="imgs/controller_darkmode.png" alt="Controller" class="stat-image theme-image"
+                  data-light="imgs/controller_lightmode.png" data-dark="imgs/controller_darkmode.png" />
+                <div class="stat-num">1</div>
+                <div class="stat-label">Games released</div>
+              </div>
+              <div class="stat stat-with-image stat-bottom-align">
+                <img src="imgs/controller_darkmode.png" alt="Controller" class="stat-image theme-image"
+                  data-light="imgs/controller_lightmode.png" data-dark="imgs/controller_darkmode.png" />
+                <div class="stat-num">1</div>
+                <div class="stat-label">Devlogs made</div>
+              </div>
+              <div class="stat stat-with-image stat-bottom-align">
+                <img src="imgs/unity_darkmode.png" alt="Unity Logo" class="stat-image theme-image"
+                  data-light="imgs/unity_lightmode.png" data-dark="imgs/unity_darkmode.png" />
+                <div class="stat-num">Unity</div>
+                <div class="stat-label">Favourite Engine</div>
+              </div>
+              <div class="stat stat-with-languages stat-bottom-align">
+                <div class="stat-languages">
+                  <img src="imgs/Logo_Csharp.png" alt="C#" class="language-logo language-logo-1" />
+                  <img src="imgs/Logo_Cpp.png" alt="C++" class="language-logo language-logo-2" />
+                  <img src="imgs/python.png" alt="Python" class="language-logo language-logo-3" />
+                  <img src="imgs/javascript.png" alt="JavaScript" class="language-logo language-logo-4" />
+                </div>
+                <div class="stat-num">C# | C++ | Python | JavaScript</div>
+                <div class="stat-label">Programming Languages I use</div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Projects</h2>
+            <p class="sub">
+              A few things I’ve built — click a card for details.
+            </p>
+          </div>
+
+          <div class="filters" role="group" aria-label="Project filters">
+            <label class="filter-input">
+              <span class="sr-only">Search projects</span>
+              <input id="projectSearch" type="search" placeholder="Search projects..." />
+            </label>
+            <div class="filter-dropdown-wrapper">
+              <button class="filter-dropdown-btn" type="button" aria-haspopup="listbox"
+                aria-label="Filter by categories">
+                <span>Filters</span>
+                <span class="dropdown-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="filter-dropdown-menu" role="listbox" aria-label="Project filters">
+
+                <div class="filter-category">
+                  <h4 class="filter-category-title">Project Type</h4>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="game" />
+                    <span>Game</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="tool" />
+                    <span>Tool</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="website" />
+                    <span>Website</span>
+                  </label>
+                </div>
+
+                <div class="filter-category">
+                  <h4 class="filter-category-title">Engine</h4>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="unity" />
+                    <span>Unity</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="phaser" />
+                    <span>Phaser</span>
+                  </label>
+                </div>
+
+                <div class="filter-category">
+                  <h4 class="filter-category-title">Platform</h4>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="pc" />
+                    <span>PC</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="vr" />
+                    <span>VR</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="web" />
+                    <span>Web</span>
+                  </label>
+                </div>
+
+                <div class="filter-category">
+                  <h4 class="filter-category-title">Progress</h4>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="released" />
+                    <span>Released</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="in-development" />
+                    <span>In Development</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="closed-alpha" />
+                    <span>Closed Alpha</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="open-beta" />
+                    <span>Open Beta</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox" data-filter="cancelled" />
+                    <span>Cancelled</span>
+                  </label>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid" id="projectGrid">
+          <!-- Project card template (duplicate + edit) -->
+          <article class="project" data-tags="unity game pc released">
+            <div class="project-card-flip">
+              <div class="project-card-front">
+                <button class="project-btn" type="button" data-title="Project title"
+                  data-tags="Unity • Roguelike • Physics"
+                  data-desc="A 3D action-roguelike tank prototype with drifting/boosting, modular upgrades, and enemy swarms."
+                  data-bullets="Responsive tank controller|Upgrade system (data-driven)|Wave spawner + difficulty scaling|UI: run summary + upgrades"
+                  data-links="Gameplay Clip,#|GitHub,#|Itch.io,#">
+                  <div class="project-top">
+                    <div class="thumb" aria-hidden="true">
+                      <div class="thumb-inner">TR</div>
+                    </div>
+                    <div class="project-meta">
+                      <h3>Get a Job!</h3>
+                      <p>Type: Game</p>
+                      <p>Genre: Horror</p>
+                      <p>Engine: Unity</p>
+                      <p>Platforms: PC</p>
+                      <p>Last Updated: 31.10.2025</p>
+                    </div>
+                  </div>
+                  <div class="project-foot">
+                    <span class="pricetag">Free To Play</span>
+                    <span class="development-status released" data-release-date="31.10.2025">Released</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </div>
+                </button>
+              </div>
+              <div class="project-card-back">
+                <h3>Get a Job!</h3>
+                <p>Get a Job! is a satirical Horror Game that I created shortly after the whole thing with the
+                  unemployment form meme got popular.</p>
+                <p>The goal of the game is to complete tasks while running away from an evil unemployment form</p>
+                <div class="project-card-back-links">
+                  <a href="#" target="_blank" rel="noreferrer">Gameplay Clip</a>
+                  <a href="#" target="_blank" rel="noreferrer">Itch.io</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" data-tags="unity game pc cancelled">
+            <div class="project-card-flip">
+              <div class="project-card-front">
+                <button class="project-btn" type="button" data-title="Timeout" data-tags="VR • Meta Quest • XR"
+                  data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
+                  data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
+                  data-links="Demo,#|GitHub,#">
+                  <div class="project-top">
+                    <div class="thumb" aria-hidden="true">
+                      <div class="thumb-inner">VR</div>
+                    </div>
+                    <div class="project-meta">
+                      <h3>Timeout</h3>
+                      <p>Type: Game</p>
+                      <p>Genre: Puzzle, Parkour</p>
+                      <p>Engine: Unity</p>
+                      <p>Platforms: PC</p>
+                      <p>Last Updated: 31.10.2025</p>
+                    </div>
+                  </div>
+                  <div class="project-foot">
+                    <span class="development-status cancelled">Cancelled</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </div>
+                </button>
+              </div>
+              <div class="project-card-back">
+                <h3>Timeout</h3>
+                <p>Timeout is a fast paced puzzle parkour game with a mechanically rich and intense movement system.
+                </p>
+                <p>The project was meant to become a full game, but I decided to keep it as a simple Demo for testing
+                  and reviewing purposes.</p>
+                <p>I cancelled the project due to lack of updates and ideas</p>
+                <div class="project-card-back-links">
+                  <a href="https://itch.io" target="_blank" rel="noreferrer">Demo</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" data-tags="phaser game web in-development">
+            <div class="project-card-flip">
+              <div class="project-card-front">
+                <button class="project-btn" type="button" data-title="Arcade .io Web Game Bomberman"
+                  data-tags="Web • Phaser • Multiplayer-ready"
+                  data-desc="A fast browser prototype with quick rounds, simple matchmaking, and retro visuals."
+                  data-bullets="Phaser scene + input|Projectile + wind system|UI: lobby + HUD|Performance pass"
+                  data-links="Play,#|GitHub,#">
+                  <div class="project-top">
+                    <div class="thumb" aria-hidden="true">
+                      <div class="thumb-inner">IO</div>
+                    </div>
+                    <div class="project-meta">
+                      <h3>Bombs.io</h3>
+                      <p>Type: Game</p>
+                      <p>Genre: Arcade, .io</p>
+                      <p>Engine: Phaser</p>
+                      <p>Platforms: Web (PC, Mobile)</p>
+                      <p>Last Updated: 31.10.2025</p>
+                    </div>
+                  </div>
+                  <div class="project-foot">
+                    <span class="development-status in-development"
+                      data-release-date="Planned Release Date: Spring 2026">In Development</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </div>
+                </button>
+              </div>
+              <div class="project-card-back">
+                <h3>Bombs.io</h3>
+                <p>A browser game inspired by Bomberman, where players throw bombs to kill players and destroy boxes
+                  which drop powerups.</p>
+                <p>The game is currently in development and will be released somewhere around Spring 2026</p>
+                <div class="project-card-back-links">
+                  <a href="#" target="_blank" rel="noreferrer">Play on bombs.io</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" data-tags="unity tool pc in-development">
+            <div class="project-card-flip">
+              <div class="project-card-front">
+                <button class="project-btn" type="button" data-title="Procedural Terrain Tool"
+                  data-tags="Unity • Tools • Editor"
+                  data-desc="A Unity editor tool for generating terrain, paths, and structure placement with rules per layer."
+                  data-bullets="Custom inspector UI|Regenerate / Reset workflow|Path + structure rules|Separate water terrain toggle"
+                  data-links="GitHub,#">
+                  <div class="project-top">
+                    <div class="thumb" aria-hidden="true">
+                      <div class="thumb-inner">TG</div>
+                    </div>
+                    <div class="project-meta">
+                      <h3>Procedural Terrain Generator</h3>
+                      <p>Type: Tool</p>
+                      <p>Engine: Unity</p>
+                    </div>
+                  </div>
+                  <div class="project-foot">
+                    <span class="development-status in-development" data-release-date="2025"> In Development</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </div>
+                </button>
+              </div>
+              <div class="project-card-back">
+                <h3>Procedural Terrain Tool</h3>
+                <p>A Unity editor tool for generating terrain, paths, and structure placement with rules per layer.</p>
+                <div class="project-card-back-links">
+                  <a href="https://github.com/Indie-Dave" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <div class="no-projects-found" id="noProjectsFound">
+            <h3>Sorry, we couldn't find any projects</h3>
+            <p>Try adjusting your filters or search terms</p>
+          </div>
+        </div>
+        <div class="projects-links">
+          <p>Go check them out here</p>
+          <div class="projects-links-buttons">
+            <a href="https://indiedave.itch.io/" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-itchio">
+              <img src="imgs/itch_io.png" alt="Itch.io" class="social-icon itchio-logo" />
+              Itch.io
+            </a>
+            <a href="https://github.com/Indie-Dave" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-github">
+              <img src="imgs/github.png" alt="GitHub" class="social-icon theme-image" data-light="imgs/github.png"
+                data-dark="imgs/github.png" />
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVLOG -->
+    <section id="devlogs" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Devlogs</h2>
+            <!--un--><span class="sub">Funny videos where I show off the development of my games</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <p>Coming soon! Check back for development updates and behind-the-scenes content.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIALS -->
+    <section id="socials" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Socials</h2>
+            <p class="sub">Follow and support on your favorite platform.</p>
+          </div>
+        </div>
+
+        <div class="socials">
+          <a href="https://www.patreon.com/c/IndieDaveee" target="_blank" rel="noreferrer"
+            class="social-btn social-btn-large social-patreon">
+            <img src="imgs/patreon.png" alt="Patreon" class="social-icon patreon-logo" />
+            Patreon
+          </a>
+          <div class="socials-grid">
+            <a href="https://www.youtube.com/@IndieDaveee" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-youtube">
+              <img src="imgs/Youtube.png" alt="YouTube" class="social-icon youtube-logo" />
+              YouTube
+            </a>
+            <a href="#" target="_blank" rel="noreferrer" class="social-btn social-btn-medium social-discord">
+              <img src="imgs/discord.png" alt="Discord" class="social-icon discord-logo" />
+              Discord
+            </a>
+            <a href="https://www.instagram.com/indiedaveee/" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-instagram">
+              <img src="imgs/instagram.png" alt="Instagram" class="social-icon instagram-logo" />
+              Instagram
+            </a>
+            <a href="https://www.twitch.tv/indiedavee" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-twitch">
+              <img src="imgs/twitch.png" alt="Twitch" class="social-icon twitch-logo" />
+              Twitch
+            </a>
+            <a href="https://www.reddit.com/user/IndieDavee" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-reddit">
+              <img src="imgs/reddit.png" alt="Reddit" class="social-icon reddit-logo" />
+              Reddit
+            </a>
+            <a href="https://www.tiktok.com/@indiedaveee" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-tiktok">
+              <img src="imgs/tiktok.png" alt="TikTok" class="social-icon tiktok-logo" />
+              TikTok
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>FAQ</h2>
+            <p class="sub">Frequently asked questions</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="question">
+            How do I download your games?
+          </p>
+          <p class="answer">
+            My games are available on itch.io. You can find some of my games there, and download the zipped versions,
+            which are currently available for Windows PCs only.
+            I will start releasing my games on Steam, once they are more polished and ready for a wider audience.
+          </p>
+          <p class="question">
+            Can I use your tools or assets in my projects?
+          </p>
+          <p class="answer">
+            All of the tools and assets on my GitHub are free for you to use in your own projects, both personal and
+            commercial.
+            Just make sure to give me credit in your game, should you use any of them.
+          </p>
+          <p class="question">
+            Where can I follow your updates?
+          </p>
+          <p class="answer">
+            I post regular updates on all of my socials. Each platform has different types of content: YouTube is mainly
+            for devlogs,
+            Instagram and TikTok are for quick updates and clips, while Discord and Reddit is for community interaction
+            and direct communication.
+          </p>
+          <p class="question">
+            How can I reach you?
+          </p>
+          <p class="answer">
+            For inquiries, please reach out via email at egginquiries@proton.me, or dm me on Discord, Instagram, TikTok,
+            whatever.
+          </p>
+          <p class="question">
+            What kind of games do you play usually?
+          </p>
+          <p class="answer">
+            I'm mostly into FPS games, either tactical shooters or class-based shooters, but I also enjoy open world,
+            puzzle,
+            horror and of course the ever-growing Friendslop titles, as long as the game is playable in first person
+            perspective.
+          </p>
+          <p class="question">
+            Do you work in a team or a company?
+          </p>
+          <p class="answer">
+            No, I'm a solo developer. I occasionally work with friends to ask them for feedback, and I also attend
+            playtesting events with other developers, but I do all of the work myself.
+          </p>
+          <p class="question">
+            Will your games be Free To Play?
+          </p>
+          <p class="answer">
+            I make sure that my games will continue to be Free To Play titles. My goal is to make my games as accesible
+            as possible, in order to
+            get as many people as possible to play and enjoy my games. I might add some paid features like cosmetic
+            items into my games in the future,
+            but I promise to never add any pay-to-win mechanics into my games.
+            <br>
+            If I ever release a bigger game, I might put a price tag on the full version, but that price tag will stay
+            under $10 for sure, and I'll make
+            sure to add a free Demo for that game as well.
+          </p>
+          <p class="question">
+            How can I support you?
+          </p>
+          <p class="answer">
+            You can support me through Patreon, where you can get access to exclusive content, behind-the-scenes
+            updates,
+            early access to new projects, and more privileges like Discord roles for exclusive channels, etc.
+          </p>
+          <p class="question">
+            Will you ever make games in Unreal Engine or Godot?
+          </p>
+          <p class="answer">
+            I have actually never tried Godot, and I don't plan on using Unreal Engine in the future. I'm happy with
+            Unity and I don't see a reason to use any other engine.
+          </p>
+          <p class="question">
+            Where did you learn how to code?
+          </p>
+          <p class="answer">
+            I'm a self-taught developer. I learned coding through online tutorials, documentation, and a lot of trial
+            and error.
+            I personally believe that the best way to learn anything is by just doing it, learning from it, and
+            improving.
+            I started in Game Development by making tiny games like in Scratch or Text Adventures in Notepad, and I
+            worked myself up from there.
+          </p>
+          <p class="question">
+            What does IndieDave mean?
+          </p>
+          <p class="answer">
+            IndieDave is my online Persona / Identity.
+            I chose the name because I'm an Indie Game Developer, and my real name is Dave.
+            So I combined the two to create IndieDave. So smart 🧠
+          </p>
+          <p class="question">
+            Why the F*%k is your Avatar an egg?
+          </p>
+          <p class="answer">
+            Good Question 😂
+            When I created my online Persona / Identity, I wanted to create an Avatar which was extremely simple,
+            with a single color and a recognizable shape. So I came up with a white egg. It's as simple as that.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p class="sub">
+              Fastest way: email. Or use the form (client-side).
+            </p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="card">
+            <h3>Reach me</h3>
+            <p class="contact-line">
+              Email: <a href="egginquiries@proton.me">egginquiries@proton.me</a>
+            </p>
+            <p class="contact-line">
+              Discord: <span class="mono">@IndieDave_</span>
+            </p>
           </div>
 
           <div class="card">
-            <p class="faq-question">
-              How do I download your games?
-            </p>
-            <p class="faq-answer">
-              My games are available on itch.io. You can find some of my games there, and download the zipped versions, which are currently available for Windows PCs only.
-              I will start releasing my games on Steam, once they are more polished and ready for a wider audience.
-            </p>
-            <p class="faq-question">
-              Can I use your tools or assets in my projects?
-            </p>
-            <p class="faq-answer">
-              All of the tools and assets on my GitHub are free for you to use in your own projects, both personal and commercial. 
-              Just make sure to give me credit in your game, should you use any of them.
-            </p>
-            <p class="faq-question">
-              Where can I follow your updates?
-            </p>
-            <p class="faq-answer">
-              I post regular updates on all of my socials. Each platform has different types of content: YouTube is mainly for devlogs, 
-              Instagram and TikTok are for quick updates and clips, while Discord and Reddit is for community interaction and direct communication.
-            </p>
-            <p class="faq-question">
-              How can I reach you?
-            </p>
-            <p class="faq-answer">
-              For inquiries, please reach out via email at egginquiries@proton.me, or dm me on Discord, Instagram, TikTok, whatever.
-            </p>
-            <p class="faq-question">
-              What kind of games do you play usually?
-            </p>
-            <p class="faq-answer">
-              I'm mostly into FPS games, either tactical shooters or class-based shooters, but I also enjoy open world, puzzle, 
-              horror and of course the ever-growing Friendslop titles, as long as the game is playable in first person perspective.
-            </p>
-            <p class="faq-question">
-              Do you work in a team or a company?
-            </p>
-            <p class="faq-answer">
-              No, I'm a solo developer. I occasionally work with friends to ask them for feedback, and I also attend playtesting events with other developers, but I do all of the work myself.
-            </p>
-            <p class="faq-question">
-              Will your games be Free To Play?
-            </p>
-            <p class="faq-answer">
-              I make sure that my games will continue to be Free To Play titles. My goal is to make my games as accesible as possible, in order to
-              get as many people as possible to play and enjoy my games. I might add some paid features like cosmetic items into my games in the future,
-              but I promise to never add any pay-to-win mechanics into my games.
-              <br>
-              If I ever release a bigger game, I might put a price tag on the full version, but that price tag will stay under $10 for sure, and I'll make
-              sure to add a free Demo for that game as well.
-            </p>
-            <p class="faq-question">
-              How can I support you?
-            </p>
-            <p class="faq-answer">
-              You can support me through Patreon, where you can get access to exclusive content, behind-the-scenes updates, 
-              early access to new projects, and more privileges like Discord roles for exclusive channels, etc.
-            </p>
-            <p class="faq-question">
-              Will you ever make games in Unreal Engine or Godot?
-            </p>
-            <p class="faq-answer">
-              I have actually never tried Godot, and I don't plan on using Unreal Engine in the future. I'm happy with Unity and I don't see a reason to use any other engine.
-            </p>
-            <p class="faq-question">
-              Where did you learn how to code?
-            </p>
-            <p class="faq-answer">
-              I'm a self-taught developer. I learned coding through online tutorials, documentation, and a lot of trial and error. 
-              I personally believe that the best way to learn anything is by just doing it, learning from it, and improving. 
-              I started in Game Development by making tiny games like in Scratch or Text Adventures in Notepad, and I worked myself up from there.
-            </p>
-            <p class="faq-question">
-              What does IndieDave mean?
-            </p>
-            <p class="faq-answer">
-              IndieDave is my online Persona / Identity. 
-              I chose the name because I'm an Indie Game Developer, and my real name is Dave. 
-              So I combined the two to create IndieDave. So smart 🧠
-            </p>
-            <p class="faq-question">
-              Why the F*%k is your Avatar an egg?
-            </p>
-            <p class="faq-answer">
-              Good Question 😂
-              When I created my online Persona / Identity, I wanted to create an Avatar which was extremely simple,
-              with a single color and a recognizable shape. So I came up with a white egg. It's as simple as that.
-            </p>
+            <h3>Message</h3>
+            <form id="contactForm">
+              <label>
+                <span>Name</span>
+                <input name="name" required placeholder="Your name" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input name="email" type="email" required placeholder="example@mail.com" />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows="5" required placeholder="What is your message?"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Send</button>
+            </form>
           </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="section alt">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Contact</h2>
-              <p class="sub">
-                Fastest way: email. Or use the form (client-side).
-              </p>
-            </div>
-          </div>
-
-          <div class="contact">
-            <div class="card">
-              <h3>Reach me</h3>
-              <p class="contact-line">
-                Email: <a href="egginquiries@proton.me">egginquiries@proton.me</a>
-              </p>
-              <p class="contact-line">
-                Discord: <span class="mono">@IndieDavee</span>
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Message</h3>
-              <form id="contactForm">
-                <label>
-                  <span>Name</span>
-                  <input name="name" required placeholder="Your name" />
-                </label>
-                <label>
-                  <span>Email</span>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="example@mail.com"
-                  />
-                </label>
-                <label>
-                  <span>Message</span>
-                  <textarea
-                    name="message"
-                    rows="5"
-                    required
-                    placeholder="What is your message?"
-                  ></textarea>
-                </label>
-                <button class="btn primary" type="submit">Send</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div>
-          © <span id="year"></span> <span id="footerName">Developer</span>
-        </div>
-        <div class="footer-links">
-
         </div>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <!-- MODAL -->
-    <div class="modal" id="modal" aria-hidden="true">
-      <div class="modal-backdrop" data-close="true"></div>
-      <div
-        class="modal-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle"
-      >
-        <div class="modal-head">
-          <div>
-            <h3 id="modalTitle">Project</h3>
-            <p id="modalTags" class="sub"></p>
-          </div>
-          <button
-            class="icon-btn"
-            type="button"
-            data-close="true"
-            aria-label="Close"
-          >
-            ✕
-          </button>
-        </div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> <span id="footerName">Developer</span>
+      </div>
+      <div class="footer-links">
 
-        <p id="modalDesc"></p>
-        <ul id="modalBullets" class="bullets"></ul>
-
-        <div class="modal-links" id="modalLinks"></div>
       </div>
     </div>
+  </footer>
 
-    <script src="scripts/main.js"></script>
-  </body>
+  <!-- MODAL -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalTitle">Project</h3>
+          <p id="modalTags" class="sub"></p>
+        </div>
+        <button class="icon-btn" type="button" data-close="true" aria-label="Close">
+          ✕
+        </button>
+      </div>
+
+      <p id="modalDesc"></p>
+      <ul id="modalBullets" class="bullets"></ul>
+
+      <div class="modal-links" id="modalLinks"></div>
+    </div>
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
+
 </html>

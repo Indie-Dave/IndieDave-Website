@@ -390,6 +390,12 @@ a:hover {
   border-radius: 50%;
   box-sizing: border-box;
 }
+.social-icon.twitch-logo {
+  padding: px;
+  border: 1px solid #ffffff; 
+  border-radius: 50%;
+  box-sizing: border-box;
+}
 .social-icon.reddit-logo {
   border: 1px solid #ffffff;
   border-radius: 50%;

@@ -1,5 +1,10 @@
 (() => {
     const root = document.documentElement;
+    document.body.classList.add("is-loading");
+    window.addEventListener("load", () => {
+      document.body.classList.remove("is-loading");
+      document.body.classList.add("page-enter");
+    });
   
     // --- helpers
     const $ = (sel, parent = document) => parent.querySelector(sel);
@@ -37,15 +42,29 @@
     // --- project filter
     const chips = $$(".chip");
     const projects = $$(".project");
+    const projectSearch = $("#projectSearch");
+    let activeFilter = "all";
   
     function setActiveChip(btn) {
       chips.forEach(c => c.classList.toggle("active", c === btn));
     }
   
-    function applyFilter(tag) {
+    function applyFilter(tag, query) {
+      const safeQuery = (query || "").trim().toLowerCase();
       projects.forEach(p => {
         const tags = (p.dataset.tags || "").split(/\s+/).filter(Boolean);
-        const show = tag === "all" ? true : tags.includes(tag);
+        const button = $(".project-btn", p);
+        const haystack = [
+          button?.dataset.title,
+          button?.dataset.desc,
+          button?.dataset.tags
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        const matchesTag = tag === "all" ? true : tags.includes(tag);
+        const matchesQuery = safeQuery ? haystack.includes(safeQuery) : true;
+        const show = matchesTag && matchesQuery;
         p.style.display = show ? "" : "none";
       });
     }
@@ -53,9 +72,14 @@
     chips.forEach(btn => {
       btn.addEventListener("click", () => {
         const tag = btn.dataset.filter;
+        activeFilter = tag;
         setActiveChip(btn);
-        applyFilter(tag);
+        applyFilter(tag, projectSearch.value);
       });
+    });
+
+    projectSearch.addEventListener("input", (e) => {
+      applyFilter(activeFilter, e.currentTarget.value);
     });
   
     // --- modal
@@ -131,18 +155,49 @@
     });
   
     // --- contact form demo
+    const messageField = $("#contactForm textarea[name='message']");
+    const nameField = $("#contactForm input[name='name']");
+    const emailField = $("#contactForm input[name='email']");
+    const charCount = $(".char-count", $("#contactForm"));
+    const MAX_MESSAGE = 5000;
+
+    function updateCharCount() {
+      const length = messageField.value.length;
+      charCount.textContent = `${length} / ${MAX_MESSAGE}`;
+    }
+
+    updateCharCount();
+    messageField.addEventListener("input", updateCharCount);
+
     $("#contactForm").addEventListener("submit", (e) => {
       e.preventDefault();
-      $("#formHint").textContent = "Saved locally (demo). Hook this to a backend to actually send.";
-      const data = Object.fromEntries(new FormData(e.currentTarget).entries());
-      localStorage.setItem("portfolio_last_message", JSON.stringify(data));
-      e.currentTarget.reset();
+      const name = nameField.value.trim();
+      const email = emailField.value.trim();
+      const message = messageField.value.trim().slice(0, MAX_MESSAGE);
+      const subject = `Message from: ${name || "Website visitor"}`;
+      const body = [
+        `Name: ${name || "N/A"}`,
+        `Email: ${email || "N/A"}`,
+        "",
+        message || "No message provided."
+      ].join("\n");
+
+      const mailto = `mailto:you@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      $("#formHint").textContent = "Opening your email client to send this message.";
     });
+
+    const sections = $$(".section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.dataset.animate = "in";
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
   
-    // --- resume placeholder
-    $("#resumeBtn").addEventListener("click", (e) => {
-      e.preventDefault();
-      alert("Replace this link with your CV file (e.g., /assets/CV.pdf).");
-    });
   })();
   

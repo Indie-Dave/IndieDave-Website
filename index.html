@@ -21,7 +21,7 @@
 
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="sr-only" id="devName">Developer</div>
+      <div class="sr-only" id="devName">IndieDave</div>
 
       <div class="topbar-content">
         <a href="#home" class="nav-home">Home</a>
@@ -291,8 +291,8 @@
                   unemployment form meme got popular.</p>
                 <p>The goal of the game is to complete tasks while running away from an evil unemployment form</p>
                 <div class="project-card-back-links">
-                  <a href="#" target="_blank" rel="noreferrer">Gameplay Clip</a>
-                  <a href="#" target="_blank" rel="noreferrer">Itch.io</a>
+                  <a href="https://indiedave.itch.io/get-a-job" target="_blank" rel="noreferrer">Itch.io</a>
+                  <a href="https://www.youtube.com/shorts/2pfENX_Tww4" target="_blank" rel="noreferrer">Gameplay Clip</a>
                 </div>
               </div>
             </div>
@@ -332,7 +332,7 @@
                   and reviewing purposes.</p>
                 <p>I cancelled the project due to lack of updates and ideas</p>
                 <div class="project-card-back-links">
-                  <a href="https://itch.io" target="_blank" rel="noreferrer">Demo</a>
+                  <a href="https://indiedave.itch.io/timeout" target="_blank" rel="noreferrer">Demo</a>
                 </div>
               </div>
             </div>
@@ -628,7 +628,7 @@
           <div>
             <h2>Contact</h2>
             <p class="sub">
-              Fastest way: email. Or use the form (client-side).
+              Feel free to reach out for inquiries, collaborations, or just to say hi
             </p>
           </div>
         </div>
@@ -637,13 +637,19 @@
           <div class="card">
             <h3>Reach me</h3>
             <p class="contact-line">
-              Email: <a href="egginquiries@proton.me">egginquiries@proton.me</a>
+              Email: <a href="mailto:egginquiries@proton.me">egginquiries@proton.me</a>
+              <button class="copy-btn" type="button" data-copy="egginquiries@proton.me" aria-label="Copy email" title="Copy email">
+                <img src="imgs/copy.png" alt="" class="copy-icon" />
+              </button>
             </p>
             <p class="contact-line">
               Discord: <span class="mono">@IndieDave_</span>
+              <button class="copy-btn" type="button" data-copy="@IndieDave_" aria-label="Copy Discord handle" title="Copy Discord handle">
+                <img src="imgs/copy.png" alt="" class="copy-icon" />
+              </button>
             </p>
           </div>
-
+          <!--
           <div class="card">
             <h3>Message</h3>
             <form id="contactForm">
@@ -655,13 +661,18 @@
                 <span>Email</span>
                 <input name="email" type="email" required placeholder="example@mail.com" />
               </label>
-              <label>
+              <label class="message-label">
                 <span>Message</span>
-                <textarea name="message" rows="5" required placeholder="What is your message?"></textarea>
+                <div class="textarea-wrapper">
+                  <textarea name="message" maxlength="5000" required placeholder="What is your message?"></textarea>
+                  <div class="char-counter"><span id="charCount">0</span><span>/5000</span></div>
+                </div>
               </label>
               <button class="btn primary" type="submit">Send</button>
             </form>
+            <div id="formHint" class="form-hint"></div>
           </div>
+          -->
         </div>
       </div>
     </section>
@@ -670,7 +681,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>
-        © <span id="year"></span> <span id="footerName">Developer</span>
+        © <span id="year"></span> <span id="footerName">IndieDave</span>
       </div>
       <div class="footer-links">
 

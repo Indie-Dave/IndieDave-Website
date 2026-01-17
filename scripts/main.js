@@ -84,22 +84,34 @@
       heroName.innerHTML = processedHTML;
     }
   
-    // --- copy email
-    const copyEmailBtn = $("#copyEmailBtn");
-    if (copyEmailBtn) {
-      copyEmailBtn.addEventListener("click", async (e) => {
-        const btn = e.currentTarget;
-        const email = btn.dataset.email || "you@example.com";
+    // --- copy buttons
+    const copyBtns = $$(".copy-btn");
+    copyBtns.forEach(btn => {
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const text = btn.dataset.copy;
         try {
-          await navigator.clipboard.writeText(email);
-          const old = btn.textContent;
-          btn.textContent = "Copied!";
-          setTimeout(() => (btn.textContent = old), 900);
-        } catch {
-          alert(`Copy failed. Email: ${email}`);
+          await navigator.clipboard.writeText(text);
+          btn.classList.add("copied");
+          const icon = btn.querySelector(".copy-icon");
+          if (icon.tagName === "IMG") {
+            icon.style.display = "none";
+          } else {
+            icon.textContent = "✓";
+          }
+          setTimeout(() => {
+            btn.classList.remove("copied");
+            if (icon.tagName === "IMG") {
+              icon.style.display = "";
+            } else {
+              icon.textContent = "📋";
+            }
+          }, 1500);
+        } catch (err) {
+          alert(`Copy failed. Text: ${text}`);
         }
       });
-    }
+    });
   
     // --- project filter
     // --- project filter
@@ -252,15 +264,78 @@
     // --- contact form demo
     const contactForm = $("#contactForm");
     if (contactForm) {
+      const messageTextarea = contactForm.querySelector("textarea[name='message']");
+      const charCounter = $("#charCount");
+      
+      // Character counter update
+      if (messageTextarea && charCounter) {
+        messageTextarea.addEventListener("input", () => {
+          charCounter.textContent = messageTextarea.value.length;
+        });
+      }
+      
       contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const formHint = $("#formHint");
-        if (formHint) formHint.textContent = "Saved locally (demo). Hook this to a backend to actually send.";
-        const data = Object.fromEntries(new FormData(e.currentTarget).entries());
-        localStorage.setItem("portfolio_last_message", JSON.stringify(data));
+        
+        const formData = Object.fromEntries(new FormData(e.currentTarget).entries());
+        const { name, email, message } = formData;
+        
+        // Prepare email data
+        const emailData = {
+          to: "egginquiries@proton.me",
+          subject: `Message from: ${name}`,
+          body: `Email: ${email}\n\nMessage:\n${message}`
+        };
+        
+        // Store locally for demo
+        localStorage.setItem("portfolio_last_message", JSON.stringify(emailData));
+        
+        // Generate mailto link as a fallback
+        const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
+        
+        if (formHint) {
+          formHint.textContent = "✓ Message prepared! Click below to open your email client or copy the details to send manually.";
+          formHint.classList.add("show");
+          
+          // Add a link to open email client
+          const link = document.createElement("a");
+          link.href = mailtoLink;
+          link.textContent = "Open Email Client";
+          link.style.marginTop = "8px";
+          link.style.display = "inline-block";
+          link.style.color = "var(--accent)";
+          link.style.textDecoration = "underline";
+        }
+        
         e.currentTarget.reset();
+        charCounter.textContent = "0";
+        
+        // Hide hint after 8 seconds
+        setTimeout(() => {
+          if (formHint) {
+            formHint.classList.remove("show");
+          }
+        }, 8000);
       });
     }
+    
+    // --- smooth scroll with offset for section anchors
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href^='#']");
+      if (link) {
+        const href = link.getAttribute("href");
+        const target = document.querySelector(href);
+        if (target && target.id) {
+          e.preventDefault();
+          const offsetTop = target.offsetTop - 100; // 100px offset from top
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth"
+          });
+        }
+      }
+    });
   
   })();
   

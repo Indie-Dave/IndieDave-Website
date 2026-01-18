@@ -325,6 +325,17 @@
       const link = e.target.closest("a[href^='#']");
       if (link) {
         const href = link.getAttribute("href");
+        
+        // Handle home button - scroll to top
+        if (href === "#home") {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+          return;
+        }
+        
         const target = document.querySelector(href);
         if (target && target.id) {
           e.preventDefault();

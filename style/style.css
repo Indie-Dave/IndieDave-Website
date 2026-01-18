@@ -1221,6 +1221,219 @@ h2 {
   height: 16px;
   object-fit: contain;
 }
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.video-container iframe {
+  border-radius: 12px;
+}
+/* Devlog Grid */
+.devlog-card {
+  position: relative;
+  overflow: visible;
+  transition: height 0.4s ease;
+}
+.devlog-card:has(.devlog-expanded[aria-hidden="false"]) {
+  height: 100%;
+  overflow: hidden;
+}
+.devlog-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.devlog-card:has(.devlog-expanded[aria-hidden="false"]) .devlog-controls {
+  display: none;
+}
+.devlog-search {
+  width: 100%;
+}
+.devlog-search input {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel2) 70%, transparent);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 10px 12px;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+}
+.devlog-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background: color-mix(in srgb, var(--panel) 70%, transparent);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.filter-btn.active {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.devlog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+  transition: filter 0.3s ease;
+}
+.devlog-card:has(.devlog-expanded[aria-hidden="false"]) .devlog-grid {
+  display: none;
+}
+.devlog-item {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel) 60%, transparent);
+  transition: all 0.3s ease;
+}
+.devlog-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.devlog-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+.devlog-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.play-button {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.devlog-item:hover .play-button {
+  opacity: 1;
+}
+.devlog-item h4 {
+  margin: 10px 12px 4px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.devlog-meta {
+  margin: 0 12px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.devlog-item.hidden {
+  display: none;
+}
+/* Expanded Video View */
+.devlog-expanded {
+  position: absolute;
+  inset: 0;
+  background: var(--panel);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 6px;
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 10;
+  overflow: hidden;
+}
+.devlog-expanded[aria-hidden="false"] {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  position: relative;
+  inset: auto;
+}
+.devlog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  padding-top: 20px;
+}
+.devlog-player-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.devlog-back-btn {
+  position: relative;
+  background: #3498db;
+  border: none;
+  color: #ffffff;
+  padding: 12px 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.devlog-back-btn:hover {
+  background: #2980b9;
+  transform: scale(1.08);
+}
+.devlog-player {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+.devlog-player iframe {
+  width: 100%;
+  height: 100%;
+}
+#devlogTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: left;
+}
+/* Responsive */
+@media (max-width: 1024px) {
+  .devlog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .devlog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", monospace;

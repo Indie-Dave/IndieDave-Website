@@ -441,12 +441,58 @@
         <div class="section-head">
           <div>
             <h2>Devlogs</h2>
-            <!--un--><span class="sub">Funny videos where I show off the development of my games</span>
+            <span class="sub">Funny videos where I show off the development of my games</span>
           </div>
         </div>
 
-        <div class="card">
-          <p>Coming soon! Check back for development updates and behind-the-scenes content.</p>
+        <div class="devlog-card card">
+          <!-- Search and Filters -->
+          <div class="devlog-controls">
+            <label class="devlog-search">
+              <span class="sr-only">Search devlogs</span>
+              <input id="devlogSearch" type="search" placeholder="Search videos..." />
+            </label>
+            <div class="devlog-filters" role="group" aria-label="Devlog filters">
+              <button class="filter-btn active" data-filter="all" type="button">All</button>
+              <button class="filter-btn" data-filter="game1" type="button">Get a Job!</button>
+            </div>
+          </div>
+
+          <!-- Video Grid -->
+          <div class="devlog-grid" id="devlogGrid">
+            <div class="devlog-item" data-id="1" data-filter="game1" data-video="FRGllX3pa6w">
+              <div class="devlog-thumbnail">
+                <img src="https://i.ytimg.com/vi/FRGllX3pa6w/hqdefault.jpg" alt="Game Development Updates" />
+                <div class="play-button">▶</div>
+              </div>
+              <h4>Game Development Updates</h4>
+              <p class="devlog-meta">Get a Job! - Devlog #1</p>
+            </div>
+            
+          </div>
+
+          <!-- Load More Button -->
+          <!--<button class="btn primary" id="devlogLoadMore" type="button">Search more</button>-->
+
+          <!-- Expanded Video View -->
+          <div class="devlog-expanded" id="devlogExpanded" aria-hidden="true">
+            <button class="devlog-back-btn" type="button" aria-label="Back to grid">
+              ← Back
+            </button>
+            <div class="devlog-content">
+              <div class="devlog-player-wrapper">
+                <div class="devlog-player">
+                  <iframe id="devlogPlayer" width="100%" height="100%" 
+                    src="" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <h3 id="devlogTitle"></h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -714,3 +760,5 @@
 </body>
 
 </html>
+
+<!--If you're reading this, you are very cool ;D-->

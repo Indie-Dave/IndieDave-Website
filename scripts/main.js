@@ -336,6 +336,124 @@
         }
       }
     });
+
+    // --- devlog grid system
+    const devlogSearch = $("#devlogSearch");
+    const devlogGrid = $("#devlogGrid");
+    const devlogItems = $$(".devlog-item");
+    const filterBtns = $$(".filter-btn");
+    const devlogExpanded = $("#devlogExpanded");
+    const devlogBackBtn = $(".devlog-back-btn");
+    const devlogPlayer = $("#devlogPlayer");
+    const devlogTitle = $("#devlogTitle");
+    const devlogLoadMore = $("#devlogLoadMore");
+
+    let activeFilter = "all";
+    let itemsPerLoad = 8;
+    let totalItems = devlogItems.length;
+
+    // Fetch YouTube video titles
+    async function fetchYouTubeTitle(videoId) {
+      try {
+        // Using noembed.com API (no API key needed)
+        const response = await fetch(`https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoId}`);
+        const data = await response.json();
+        return data.title || null;
+      } catch (error) {
+        console.log("Could not fetch YouTube title:", error);
+        return null;
+      }
+    }
+
+    // Initialize video titles from YouTube
+    devlogItems.forEach(async (item) => {
+      const videoId = item.dataset.video;
+      const titleElement = item.querySelector("h4");
+      const currentTitle = item.dataset.title;
+      
+      const youtubeTitle = await fetchYouTubeTitle(videoId);
+      if (youtubeTitle) {
+        item.dataset.title = youtubeTitle;
+        titleElement.textContent = youtubeTitle;
+      }
+    });
+
+    function filterDevlogs(searchQuery = "", filterType = "all") {
+      let visibleCount = 0;
+      const query = (searchQuery || "").trim().toLowerCase();
+
+      devlogItems.forEach((item) => {
+        const title = (item.dataset.title || "").toLowerCase();
+        const filter = item.dataset.filter || "";
+        
+        const matchesSearch = query === "" || title.includes(query);
+        const matchesFilter = filterType === "all" || filter === filterType;
+        const show = matchesSearch && matchesFilter;
+        
+        item.classList.toggle("hidden", !show);
+        if (show) visibleCount++;
+      });
+
+      // Show/hide load more button
+      devlogLoadMore.style.display = visibleCount < totalItems ? "block" : "none";
+    }
+
+    // Search functionality
+    if (devlogSearch) {
+      devlogSearch.addEventListener("input", (e) => {
+        filterDevlogs(e.target.value, activeFilter);
+      });
+    }
+
+    // Filter buttons
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeFilter = btn.dataset.filter;
+        filterDevlogs(devlogSearch?.value || "", activeFilter);
+      });
+    });
+    // Devlog item click to expand
+    devlogItems.forEach((item) => {
+      item.addEventListener("click", async () => {
+        const videoId = item.dataset.video;
+        const title = item.dataset.title;
+        
+        devlogPlayer.src = `https://www.youtube.com/embed/${videoId}`;
+        devlogTitle.textContent = title;
+        devlogExpanded.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    // Back button to close expanded view
+    if (devlogBackBtn) {
+      devlogBackBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        devlogExpanded.setAttribute("aria-hidden", "true");
+        devlogPlayer.src = "";
+      });
+    }
+
+    // Close expanded view when clicking on the card background
+    if (devlogExpanded) {
+      devlogExpanded.addEventListener("click", (e) => {
+        if (e.target === devlogExpanded) {
+          devlogExpanded.setAttribute("aria-hidden", "true");
+          devlogPlayer.src = "";
+        }
+      });
+    }
+
+    // Load more functionality
+    if (devlogLoadMore) {
+      devlogLoadMore.addEventListener("click", () => {
+        itemsPerLoad += 4;
+        // In a real app, this would load more items from a server
+        // For now, we'll just show all items
+        filterDevlogs(devlogSearch?.value || "", activeFilter);
+      });
+    }
   
   })();
   

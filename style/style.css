@@ -2256,6 +2256,140 @@ textarea {
   margin-top: 12px;
 }
 
+/* CUSTOM SCROLLBARS */
+
+/* Project card scrollbars - stylized with gradient */
+.project-card-back::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-card-back::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.project-card-back::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.project-card-back::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+  background-clip: padding-box;
+}
+
+/* Firefox scrollbars for project cards */
+.project-card-back {
+  scrollbar-color: var(--muted) transparent;
+  scrollbar-width: thin;
+}
+
+/* Custom page scrollbar with dots indicator */
+
+/* Custom page scrollbar */
+html::-webkit-scrollbar {
+  width: 12px;
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  opacity: 0.5;
+  transition: background 0.2s;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+  opacity: 0.8;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) transparent;
+}
+
+/* Dots indicator system */
+
+.scroll-dots {
+  position: fixed;
+  right: 20px;
+  top: 30px;
+  height: calc(100vh - 60px);
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9999;
+  pointer-events: none;
+}
+.scroll-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.35;
+  margin: 2px 0;
+  transition: width 0.18s, height 0.18s, opacity 0.18s;
+}
+.scroll-dot.active {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* Make the page scrollbar a dot */
+html::-webkit-scrollbar {
+  width: 24px;
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  min-width: 32px;
+  margin: 2px 0;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 30%, transparent);
+  opacity: 1;
+  transition: background 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.scroll-dots {
+  /* ...existing code... */
+}
+.scroll-dot {
+  /* ...existing code... */
+  position: relative;
+}
+.scroll-dot-section {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 2px;
+  height: 18px;
+  background: var(--muted);
+  opacity: 0.7;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--text);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
 
 .sr-only {
   position: absolute;

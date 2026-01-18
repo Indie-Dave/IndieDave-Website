@@ -454,6 +454,22 @@
         filterDevlogs(devlogSearch?.value || "", activeFilter);
       });
     }
+
+    // --- FAQ: Add Q: and A: prefixes
+    const faqQuestions = $$(".question");
+    const faqAnswers = $$(".answer");
+    
+    faqQuestions.forEach(q => {
+      if (!q.textContent.trim().startsWith("Q:")) {
+        q.textContent = "Q: " + q.textContent;
+      }
+    });
+    
+    faqAnswers.forEach(a => {
+      if (!a.textContent.trim().startsWith("A:")) {
+        a.textContent = "A: " + a.textContent;
+      }
+    });
   
   })();
   

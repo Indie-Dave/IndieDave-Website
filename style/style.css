@@ -601,6 +601,52 @@ h2 {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 18%, transparent);
 }
 
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  min-height: 32px;
+}
+.active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel) 65%, transparent);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 10px 6px 12px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.active-filter-chip span {
+  display: inline-block;
+}
+.filter-chip-remove {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.15s ease;
+  opacity: 0.7;
+}
+.filter-chip-remove:hover {
+  background: color-mix(in srgb, var(--text) 15%, transparent);
+  opacity: 1;
+}
+
 .filter-dropdown-wrapper {
   position: relative;
   display: inline-block;
@@ -680,19 +726,109 @@ h2 {
 .checkbox-label:hover {
   background: color-mix(in srgb, var(--text) 8%, transparent);
 }
-.checkbox-label input[type="checkbox"] {
+.checkbox-label input[type="checkbox"],
+.checkbox-label input[type="radio"] {
   width: 14px;
   height: 14px;
   cursor: pointer;
   accent-color: var(--text);
   flex-shrink: 0;
 }
-.checkbox-label input[type="checkbox"]:checked + span {
+.checkbox-label input[type="checkbox"]:checked + span,
+.checkbox-label input[type="radio"]:checked + span {
   font-weight: 600;
 }
 .checkbox-label span {
   display: inline;
   text-align: left;
+}
+
+.price-range-wrapper {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.price-range-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.price-range-inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.price-range-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.price-range-item-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.price-range-inputs input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  padding: 0;
+  background: color-mix(in srgb, var(--panel2) 50%, transparent);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.price-range-inputs input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  cursor: pointer;
+  border: 2px solid var(--panel);
+  transition: transform 0.15s ease;
+}
+
+.price-range-inputs input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.price-range-inputs input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  cursor: pointer;
+  border: 2px solid var(--panel);
+  transition: transform 0.15s ease;
+}
+
+.price-range-inputs input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+
+.price-range-inputs input[type="range"]::-webkit-slider-track {
+  height: 6px;
+  background: color-mix(in srgb, var(--panel2) 50%, transparent);
+  border-radius: 3px;
+}
+
+.price-range-inputs input[type="range"]::-moz-range-track {
+  height: 6px;
+  background: color-mix(in srgb, var(--panel2) 50%, transparent);
+  border-radius: 3px;
 }
 
 .grid {

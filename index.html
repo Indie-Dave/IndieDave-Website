@@ -187,15 +187,15 @@
                 <div class="filter-category">
                   <h4 class="filter-category-title">Project Type</h4>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="game" />
+                    <input type="radio" name="filter-type" class="filter-radio" data-filter="game" data-category="type" />
                     <span>Game</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="tool" />
+                    <input type="radio" name="filter-type" class="filter-radio" data-filter="tool" data-category="type" />
                     <span>Tool</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="website" />
+                    <input type="radio" name="filter-type" class="filter-radio" data-filter="website" data-category="type" />
                     <span>Website</span>
                   </label>
                 </div>
@@ -203,11 +203,11 @@
                 <div class="filter-category">
                   <h4 class="filter-category-title">Engine</h4>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="unity" />
+                    <input type="radio" name="filter-engine" class="filter-radio" data-filter="unity" data-category="engine" />
                     <span>Unity</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="phaser" />
+                    <input type="radio" name="filter-engine" class="filter-radio" data-filter="phaser" data-category="engine" />
                     <span>Phaser</span>
                   </label>
                 </div>
@@ -215,15 +215,15 @@
                 <div class="filter-category">
                   <h4 class="filter-category-title">Platform</h4>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="pc" />
+                    <input type="radio" name="filter-platform" class="filter-radio" data-filter="pc" data-category="platform" />
                     <span>PC</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="vr" />
+                    <input type="radio" name="filter-platform" class="filter-radio" data-filter="vr" data-category="platform" />
                     <span>VR</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="web" />
+                    <input type="radio" name="filter-platform" class="filter-radio" data-filter="web" data-category="platform" />
                     <span>Web</span>
                   </label>
                 </div>
@@ -231,31 +231,76 @@
                 <div class="filter-category">
                   <h4 class="filter-category-title">Progress</h4>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="released" />
+                    <input type="radio" name="filter-progress" class="filter-radio" data-filter="released" data-category="progress" />
                     <span>Released</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="in-development" />
+                    <input type="radio" name="filter-progress" class="filter-radio" data-filter="in-development" data-category="progress" />
                     <span>In Development</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="closed-alpha" />
+                    <input type="radio" name="filter-progress" class="filter-radio" data-filter="closed-alpha" data-category="progress" />
                     <span>Closed Alpha</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="open-beta" />
+                    <input type="radio" name="filter-progress" class="filter-radio" data-filter="open-beta" data-category="progress" />
                     <span>Open Beta</span>
                   </label>
                   <label class="checkbox-label">
-                    <input type="checkbox" class="filter-checkbox" data-filter="cancelled" />
+                    <input type="radio" name="filter-progress" class="filter-radio" data-filter="cancelled" data-category="progress" />
                     <span>Cancelled</span>
                   </label>
                 </div>
 
+                <div class="filter-category">
+                  <h4 class="filter-category-title">Price</h4>
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="filter-checkbox-price" id="freeToPlayCheckbox" />
+                    <span>Free To Play</span>
+                  </label>
+                  <div class="price-range-wrapper">
+                    <div class="price-range-header">
+                      <span>Price Range: $<span id="priceMinDisplay">0</span> - $<span id="priceMaxDisplay">20</span></span>
+                    </div>
+                    <div class="price-range-inputs">
+                      <div class="price-range-item">
+                        <label for="priceMin" class="price-range-item-label">Min: $<span id="priceMinDisplayInline">0</span></label>
+                        <input type="range" id="priceMin" min="0" max="20" value="0" step="1" />
+                      </div>
+                      <div class="price-range-item">
+                        <label for="priceMax" class="price-range-item-label">Max: $<span id="priceMaxDisplayInline">20</span></label>
+                        <input type="range" id="priceMax" min="0" max="20" value="20" step="1" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="filter-dropdown-wrapper">
+              <button class="filter-dropdown-btn" type="button" id="sortDropdownBtn" aria-haspopup="listbox"
+                aria-label="Sort projects">
+                <span>Sort By</span>
+                <span class="dropdown-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="filter-dropdown-menu" role="listbox" id="sortDropdownMenu" aria-label="Sort options">
+                <div class="filter-category">
+                  <label class="checkbox-label">
+                    <input type="radio" name="sortOption" class="sort-radio" value="popular" checked />
+                    <span>Most Popular</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="radio" name="sortOption" class="sort-radio" value="recent" />
+                    <span>Most Recently Updated</span>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Active Filters Display -->
+        <div class="active-filters" id="activeFiltersContainer"></div>
 
         <div class="grid" id="projectGrid">
           <!-- Project card template (duplicate + edit) -->
@@ -300,45 +345,6 @@
             </div>
           </article>
 
-          <article class="project" data-tags="unity game pc cancelled">
-            <div class="project-card-flip">
-              <div class="project-card-front">
-                <button class="project-btn" type="button" data-title="Timeout" data-tags="VR • Meta Quest • XR"
-                  data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
-                  data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
-                  data-links="Demo,#|GitHub,#">
-                  <div class="project-top">
-                    <div class="thumb" aria-hidden="true">
-                      <div class="thumb-inner">VR</div>
-                    </div>
-                    <div class="project-meta">
-                      <h3>Timeout</h3>
-                      <p>Type: Game</p>
-                      <p>Genre: Puzzle, Parkour</p>
-                      <p>Engine: Unity</p>
-                      <p>Platforms: PC</p>
-                      <p>Last Updated: 31.10.2025</p>
-                    </div>
-                  </div>
-                  <div class="project-foot">
-                    <span class="development-status cancelled">Cancelled</span>
-                    <span class="arrow" aria-hidden="true">→</span>
-                  </div>
-                </button>
-              </div>
-              <div class="project-card-back">
-                <h3>Timeout</h3>
-                <p>Timeout is a fast paced puzzle parkour game with a mechanically rich and intense movement system.
-                </p>
-                <p>The project was meant to become a full game, but I decided to keep it as a simple Demo for testing
-                  and reviewing purposes.</p>
-                <p>I cancelled the project due to lack of updates and ideas</p>
-                <div class="project-card-back-links">
-                  <a href="https://indiedave.itch.io/timeout" target="_blank" rel="noreferrer">Demo</a>
-                </div>
-              </div>
-            </div>
-          </article>
 
           <article class="project" data-tags="phaser game web in-development">
             <div class="project-card-flip">
@@ -358,7 +364,7 @@
                       <p>Genre: Arcade, .io</p>
                       <p>Engine: Phaser</p>
                       <p>Platforms: Web (PC, Mobile)</p>
-                      <p>Last Updated: 31.10.2025</p>
+                      <p>Last Updated: 12.01.2026</p>
                     </div>
                   </div>
                   <div class="project-foot">
@@ -375,6 +381,46 @@
                 <p>The game is currently in development and will be released somewhere around Spring 2026</p>
                 <div class="project-card-back-links">
                   <a href="#" target="_blank" rel="noreferrer">Play on bombs.io</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" data-tags="unity game pc cancelled">
+            <div class="project-card-flip">
+              <div class="project-card-front">
+                <button class="project-btn" type="button" data-title="Timeout" data-tags="VR • Meta Quest • XR"
+                  data-desc="Hand interactions, holsters, and weapon handling tuned for comfort and speed."
+                  data-bullets="XR Interaction Toolkit setup|Holster zones + grab logic|Smooth turning + locomotion|Audio + haptics feedback"
+                  data-links="Demo,#|GitHub,#">
+                  <div class="project-top">
+                    <div class="thumb" aria-hidden="true">
+                      <div class="thumb-inner">VR</div>
+                    </div>
+                    <div class="project-meta">
+                      <h3>Timeout</h3>
+                      <p>Type: Game</p>
+                      <p>Genre: Puzzle, Parkour</p>
+                      <p>Engine: Unity</p>
+                      <p>Platforms: PC</p>
+                      <p>Last Updated: 20.6.2025</p>
+                    </div>
+                  </div>
+                  <div class="project-foot">
+                    <span class="development-status cancelled">Cancelled</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </div>
+                </button>
+              </div>
+              <div class="project-card-back">
+                <h3>Timeout</h3>
+                <p>Timeout is a fast paced puzzle parkour game with a mechanically rich and intense movement system.
+                </p>
+                <p>The project was meant to become a full game, but I decided to keep it as a simple Demo for testing
+                  and reviewing purposes.</p>
+                <p>I cancelled the project due to lack of updates and ideas</p>
+                <div class="project-card-back-links">
+                  <a href="https://indiedave.itch.io/timeout" target="_blank" rel="noreferrer">Demo</a>
                 </div>
               </div>
             </div>

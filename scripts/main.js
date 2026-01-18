@@ -456,18 +456,17 @@
     }
 
     // --- FAQ: Add Q: and A: prefixes
-    const faqQuestions = $$(".question");
-    const faqAnswers = $$(".answer");
-    
-    faqQuestions.forEach(q => {
-      if (!q.textContent.trim().startsWith("Q:")) {
-        q.textContent = "Q: " + q.textContent;
+    $$(".question").forEach(q => {
+      const text = q.textContent.trim();
+      if (!text.startsWith("Q:")) {
+        q.textContent = "Q: " + text;
       }
     });
     
-    faqAnswers.forEach(a => {
-      if (!a.textContent.trim().startsWith("A:")) {
-        a.textContent = "A: " + a.textContent;
+    $$(".answer").forEach(a => {
+      const text = a.textContent.trim();
+      if (!text.startsWith("A:")) {
+        a.textContent = "A: " + text;
       }
     });
   

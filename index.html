@@ -467,6 +467,11 @@
         <div class="projects-links">
           <p>Go check them out here</p>
           <div class="projects-links-buttons">
+            <a href="https://www.patreon.com/c/IndieDaveee" target="_blank" rel="noreferrer"
+              class="social-btn social-btn-medium social-patreon">
+              <img src="imgs/patreon.png" alt="Patreon" class="social-icon patreon-logo" />
+              Patreon
+            </a>
             <a href="https://indiedave.itch.io/" target="_blank" rel="noreferrer"
               class="social-btn social-btn-medium social-itchio">
               <img src="imgs/itch_io.png" alt="Itch.io" class="social-icon itchio-logo" />
@@ -556,10 +561,10 @@
         </div>
 
         <div class="socials">
-          <a href="https://www.patreon.com/c/IndieDaveee" target="_blank" rel="noreferrer"
-            class="social-btn social-btn-large social-patreon">
-            <img src="imgs/patreon.png" alt="Patreon" class="social-icon patreon-logo" />
-            Patreon
+          <a href="https://indiedave.itch.io/" target="_blank" rel="noreferrer"
+            class="social-btn social-btn-large social-itchio">
+            <img src="imgs/itch_io.png" alt="Itch.io" class="social-icon itchio-logo" />
+            Itch.io
           </a>
           <div class="socials-grid">
             <a href="https://www.youtube.com/@IndieDaveee" target="_blank" rel="noreferrer"
@@ -742,6 +747,9 @@
               </button>
             </p>
           </div>
+          <div>
+            © <span id="year"></span> <span id="footerName">IndieDave</span>
+          </div>
           <!--
           <div class="card">
             <h3>Message</h3>
@@ -773,36 +781,12 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div>
-        © <span id="year"></span> <span id="footerName">IndieDave</span>
-      </div>
+        
       <div class="footer-links">
 
       </div>
     </div>
   </footer>
-
-  <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close="true"></div>
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-head">
-        <div>
-          <h3 id="modalTitle">Project</h3>
-          <p id="modalTags" class="sub"></p>
-        </div>
-        <button class="icon-btn" type="button" data-close="true" aria-label="Close">
-          ✕
-        </button>
-      </div>
-
-      <p id="modalDesc"></p>
-      <ul id="modalBullets" class="bullets"></ul>
-
-      <div class="modal-links" id="modalLinks"></div>
-    </div>
-  </div>
-
   <script src="scripts/main.js"></script>
 </body>
 

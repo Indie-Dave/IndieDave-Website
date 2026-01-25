@@ -959,11 +959,12 @@ h2 {
   display: flex;
   gap: 12px;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .projects-links-buttons .social-btn {
-  flex: 0 1 auto;
+  flex: 1 1 0;
   min-width: 140px;
+  max-width: 200px;
 }
 .thumb {
   width: 46px;
@@ -1248,6 +1249,11 @@ h2 {
 }
 
 /* Social button brand colors */
+.social-itchio {
+  background: #fa5c4d !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
 .social-patreon {
   background: #ff6b35 !important;
   border-color: #ffffff !important;
@@ -2424,7 +2430,7 @@ textarea {
 /* Custom page scrollbar with dots indicator */
 
 /* Custom page scrollbar */
-html::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 12px;
 }
 html::-webkit-scrollbar-track {
@@ -2436,14 +2442,13 @@ html::-webkit-scrollbar-thumb {
   border: 3px solid transparent;
   background-clip: padding-box;
   opacity: 0.5;
-  transition: background 0.2s;
 }
 html::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
   opacity: 0.8;
 }
 html {
-  scrollbar-width: thin;
+  scrollbar-width: 0px;
   scrollbar-color: var(--muted) transparent;
 }
 
